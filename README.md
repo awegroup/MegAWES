@@ -1,4 +1,4 @@
-# MWAWES (v<sub>w</sub>=12 ms<sup>-1</sup>)
+# MegAWES (v<sub>w</sub>=12 ms<sup>-1</sup>)
 
 [![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release&sort=semver)](https://github.com/awegroup/MegAWES/releases)
 [![Matlab](https://img.shields.io/badge/Matlab%20Simulink-2020A-brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
@@ -8,7 +8,7 @@
 ![Aircraft](DE2019_Aircraft.jpeg)
 <!--<img src="DE2019_Aircraft.jpeg" alt="alt text" width="600"/>-->
 
-MWAWES is a Matlab/Simulink model of an airborne wind energy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing more than a megawatt of electricity evaluated at 12 meter per second ground wind speed (6m height). The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
+MegAWES is a Matlab/Simulink model of an airborne wind energy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing more than a megawatt of electricity evaluated at 12 meter per second ground wind speed (6m height). The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
@@ -39,10 +39,10 @@ What things you need to run the software and how to install them.
 
 A step by step series of examples that tell you how to get a development env running
 
-1. Get a copy of the latest `MWAWES` environment release:
+1. Get a copy of the latest `MegAWES` environment release:
 
 	```
-	git clone https://github.com/awegroup/MWAWES.git
+	git clone https://github.com/awegroup/MegAWES.git
 	```
 
 ## Deployment
@@ -93,7 +93,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/awegroup/MWAWES/tags). 
+For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags). 
 
 ## Authors
 
@@ -101,7 +101,7 @@ For the versions available, see the [tags on this repository](https://github.com
 * **Urban Fasel** - *Initial framework set-up* 
 * **Sebastian Rapp** - *Flight controller design*
 
-See also the list of [contributors](https://github.com/awegroup/MWAWES/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
 
 ## License
 
