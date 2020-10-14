@@ -99,7 +99,7 @@ For the versions available, see the [tags on this repository](https://github.com
 
 * **Dylan Eijkelhof** - *Initial work current system, multi-MW aircraft* - [GitHub](https://github.com/DylanEij)
 * **Urban Fasel** - *Initial framework set-up* 
-* **Sebastian Rapp** - *Flight controller design*
+* **Sebastian Rapp** - *Flight controller design* - [GitHub](https://github.com/sebrap)
 
 See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
 
