@@ -1,0 +1,10 @@
+*.slxc
+slprj/
+**/.DS_Store
+*.prj
+*.slx.*
+*.html
+resources/
+*.m~
+*_msf.*
+**/Cache_temp
