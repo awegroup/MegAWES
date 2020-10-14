@@ -1,6 +1,6 @@
 # MWAWES (v<sub>w</sub>=12 ms<sup>-1</sup>)
 
-[![Version](https://img.shields.io/github/v/release/awegroup/MWAWES?label=Latest%20release)](https://github.com/awegroup/MegAWES/releases)
+[![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release&sort=semver)](https://github.com/awegroup/MegAWES/releases)
 [![Matlab](https://img.shields.io/badge/Matlab%20Simulink-2020A-brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
 [![Matlab](https://img.shields.io/badge/Matlab%20Simulink-2018B-yellow)](https://www.mathworks.com/products/simulink) <!--static-->
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
