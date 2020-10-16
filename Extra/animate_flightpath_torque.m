@@ -42,7 +42,8 @@ function animate_flightpath_torque(FileName, P_mech_last_cycle,...
 %       Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,...
 %       Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,45,30);
 %
-% Other m-files required: animation_aircraft.m, animation_tether.m
+% Other m-files required: animation_aircraft.m, animation_tether.m,
+%                         animation_simtime.m, animation_colorbar.m
 % Subfunctions: None
 % MAT-files required: None
 %
@@ -53,11 +54,11 @@ function animate_flightpath_torque(FileName, P_mech_last_cycle,...
 
 %------------- BEGIN CODE --------------
 
-% Graph limits can be adjusted below 
+% Graph axis limits
 
-limitz = [0 1000];
+limitz = [0 1200];
 limity = [-600 600];
-limitx = [-100 1500];
+limitx = [-100 1600];
 
 %% File name check
 % Check whether filename exists to prevent unwanted overwriting of the file
@@ -187,11 +188,33 @@ syms t;
 
 % fps = 30;
 
+% Create textbox
+annotation(figure(1),'textbox',...
+    [0.0581428571428571 0.0452488687782827 0.210428571428571 0.0407239819004553],...
+    'String',{'(Kite is not illustrated to scale)'},...
+    'FontSize',16,...
+    'FontAngle','italic',...
+    'FitBoxToText','off',...
+    'EdgeColor','none');
+
 fanimator(axes1,@animation_tether,Path_last_cycle,Tether_last_cycle,Tend,...
     fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
 
 fanimator(axes1,@animation_aircraft,Path_last_cycle,EulAng_last_cycle,...
     ENVMT.windDirection_rad,Tend,fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
+
+TimePos = [0.6*limitx(2), limity(2), limitz(2)];
+fanimator(axes1,@animation_simtime,Path_last_cycle,TimePos,Tend,...
+    fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
+
+h_axes = axes('Parent',fig_pow,'position', cb.Position, 'ylim', cb.Limits, ...
+    'color', 'none', 'visible','off');
+
+fanimator(h_axes,@animation_colorbar,Power,Tend,...
+    fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
+
+h_axes.Visible = 'off'; % fanimator adjust axis, so revert back to match original
+h_axes.YLim = cb.Limits; % fanimator adjust axis, so revert back to match original
 
 if WriteFileFlag
     vidObj = VideoWriter(FileName,'MPEG-4');

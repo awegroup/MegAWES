@@ -45,7 +45,6 @@ end
 
 %% Animate Flightpath
 
-% Create figure to play animation
 if 0 %1 to activate
     addpath(genpath('Extra'))
     P_mech_last_cycle = extractSignalOfLastCycle2(simout.P_mech, ...
@@ -61,36 +60,20 @@ if 0 %1 to activate
     Tether_last_cycle_z = extractSignalOfLastCycle_nD(simout.Tether_z, ...
         simout.cycle_signal_counter, simInit );
     
-    animate_flightpath_torque([],P_mech_last_cycle,...
+%     filename = 'FileName.mp4'; % Create animation video, write to file
+    filename = []; % Create figure to play animation
+    Duration = 60;
+    fps = 30;
+    animate_flightpath_torque(filename,P_mech_last_cycle,...
         Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,...
-        Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,60,30);
+        Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,Duration,fps);
+    if ~isempty(filename)
+        movefile(filename,['Extra' filesep filename])
+    end
     rmpath(genpath('Extra'))
 end
 % use the command: "playAnimation" (without quotes) to play the animation
 
-% Create animation video, write to file
-if 0 %1 to activate
-    addpath(genpath('Extra'))
-    P_mech_last_cycle = extractSignalOfLastCycle2(simout.P_mech, ...
-        simout.cycle_signal_counter, simInit); %#ok<*UNRCH>
-    Path_last_cycle = extractSignalOfLastCycle3D(simout.pos_O, ...
-        simout.cycle_signal_counter, simInit );
-    EulAng_last_cycle = extractSignalOfLastCycle_nD(simout.Eul_ang, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_x = extractSignalOfLastCycle_nD(simout.Tether_x, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_y = extractSignalOfLastCycle_nD(simout.Tether_y, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_z = extractSignalOfLastCycle_nD(simout.Tether_z, ...
-        simout.cycle_signal_counter, simInit );
-    
-    filename = 'FileName.mp4';
-    animate_flightpath_torque(filename,P_mech_last_cycle,...
-        Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,...
-        Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,45,30);
-    movefile(filename,['Extra' filesep filename])
-    rmpath(genpath('Extra'))
-end
 %% Update previous version
 %   If changes are made, update older version files for compatibility
 %   this includes all model reference files, if any.
