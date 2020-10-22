@@ -12,12 +12,14 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function handleTime = animation_simtime(Path_last_cycle,pos,Tend,fps,t)
+function handleTime = animation_simtime(Path_last_cycle,pos,index_set,Tend,fps,t)
 %animation_simtime - Animate timer according to datapoint time
 %
 % Inputs:
 %    Path_last_cycle - Aircraft position
 %    Pos - timer position on figure
+%    index_set - Array containing the indices of the dataset that should be
+%                used
 %    Tend - Video length
 %    fps - Frames per second
 %    t - animation time at particular step, provided by fanimator()
@@ -36,8 +38,7 @@ function handleTime = animation_simtime(Path_last_cycle,pos,Tend,fps,t)
 
 %------------- BEGIN CODE --------------
 
-multiplier = ceil(size(Path_last_cycle.Data,2)/(Tend*fps));
-datapoint = round(((t/(1/fps))+1)*multiplier);
+datapoint = index_set(round(((t/(1/fps))+1)));
 if t == 0
     datapoint = 1;
 elseif datapoint>size(Path_last_cycle.Data,2)

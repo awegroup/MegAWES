@@ -12,11 +12,13 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function handleLine = animation_colorbar(Power,Tend,fps,t)
+function handleLine = animation_colorbar(Power,index_set,Tend,fps,t)
 %animation_colorbar - Animate instantaneous power on colorbar
 %
 % Inputs:
 %    Path_last_cycle - Aircraft position
+%    index_set - Array containing the indices of the dataset that should be
+%                used
 %    Tend - Video length
 %    fps - Frames per second
 %    t - animation time at particular step, provided by fanimator()
@@ -41,8 +43,7 @@ function handleLine = animation_colorbar(Power,Tend,fps,t)
 
 %------------- BEGIN CODE --------------
 
-multiplier = ceil(numel(Power)/(Tend*fps));
-datapoint = round(((t/(1/fps))+1)*multiplier);
+datapoint = index_set(round(((t/(1/fps))+1)));
 if t == 0
     datapoint = 1;
 elseif datapoint>numel(Power)

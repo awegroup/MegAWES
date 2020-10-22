@@ -12,13 +12,15 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function p = animation_aircraft(Path_last_cycle,EulAng_last_cycle,windDir,Tend,fps,t)
+function p = animation_aircraft(Path_last_cycle,EulAng_last_cycle,windDir,index_set,Tend,fps,t)
 %animation_aircraft - Animate aircraft position
 %
 % Inputs:
 %    Path_last_cycle - Aircraft position
 %    EulAng_last_cycle - Aircraft orientation angles
 %    windDir - Wind direction
+%    index_set - Array containing the indices of the dataset that should be
+%                used
 %    Tend - Video length
 %    fps - Frames per second
 %    t - animation time at particular step, provided by fanimator()
@@ -45,8 +47,8 @@ persistent Vert
 persistent F
 persistent C
 
-multiplier = ceil(size(Path_last_cycle.Data,2)/(Tend*fps));
-datapoint = round(((t/(1/fps))+1)*multiplier);
+datapoint = index_set(round(((t/(1/fps))+1)));
+
 if t == 0
     datapoint = 1;
 elseif datapoint>size(Path_last_cycle.Data,2)
