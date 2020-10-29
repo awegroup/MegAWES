@@ -28,16 +28,22 @@ What things you need to run the software and how to install them.
 1. Install Matlab R2020A, Simulink R2020a and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
 
 	```
-	Matlab (version R2020A, 9.8 tested)
-	Simulink (version R2020A, 10.1 tested)
-	Curve Fitting Toolbox (version 3.5.11 tested)
-	Aerospace Blockset (version 4.3 tested)
-	Phased Array System Toolbox (version 4.3 tested)
+	Matlab (version R2020A, 9.8 tested on macOS 10.15.7)
+	Simulink (version R2020A, 10.1 tested on macOS 10.15.7)
+	Curve Fitting Toolbox (version 3.5.11 tested on macOS 10.15.7)
+	Aerospace Blockset (version 4.3 tested on macOS 10.15.7)
+	Phased Array System Toolbox (version 4.3 tested on macOS 10.15.7)
 	```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
+
+1. Install git LFS if you do not have it installed, detailed instructions can be found [here](https://github.com/git-lfs/git-lfs/wiki/Installation):
+
+	```
+	git lfs install
+	```
 
 1. Get a copy of the latest `MegAWES` environment release:
 
