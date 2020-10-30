@@ -30,9 +30,7 @@ What things you need to run the software and how to install them.
 	```
 	Matlab (version R2020A, 9.8 tested on macOS 10.15.7)
 	Simulink (version R2020A, 10.1 tested on macOS 10.15.7)
-	Curve Fitting Toolbox (version 3.5.11 tested on macOS 10.15.7)
-	Aerospace Blockset (version 4.3 tested on macOS 10.15.7)
-	Phased Array System Toolbox (version 4.3 tested on macOS 10.15.7)
+	Stateflow (version 10.2 tested on macOS 10.15.7)
 	```
 
 ### Installing
