@@ -1,0 +1,136 @@
+$ Femap with NX Nastran Property 5 : Spar skin
+PCOMP          5              0.  82.6+6    TSAI                        +       
++              3   .0005      0.     YES
+$ Femap with NX Nastran Property 555 : rib skin
+PCOMP        555              0.  82.6+6    TSAI                        +       
++              3   .0004      0.     YES
+$ Femap with NX Nastran Property 9 : Rigid skin
+PCOMP          9              0.  82.6+6    TSAI                        +       
++            502    5.-4      0.     YES     501    2.-4      0.     YES+       
++            502    5.-4     90.     YES     502    5.-4      0.     YES+   
++            502    5.-4     90.     YES     501    2.-4      0.     YES+       
++            502    5.-4      0.     YES
+$ Femap with NX Nastran Property 11 : T-shaped CFRP stringers up
+$ Femap with NX Nastran PropShape 11 : 11,0,0.005,0.005,0.001,0.001,0.001,0.001
+$ Femap with NX Nastran PropOrient 11 : 11,0,3.,1.,2.,5.,6.,1.,5.61402E-4,-5.614E-4
+PBEAM         11       2    9.-61.964-111.964-111.111-112.874-12      0.+       
++        5.614-4-5.614-4 5.614-4.0044386-4.439-3 4.386-4-4.439-3-5.614-4+       
++           YESA      1.                                                +       
++       .4731567.4731567                                                +       
++                                        -1.05-3.0010497 -1.05-3.0010497        
+$ Femap with NX Nastran Property 12 : T-shaped CFRP stringers dn
+$ Femap with NX Nastran PropShape 12 : 11,0,0.005,0.005,0.001,0.001,0.001,0.001
+$ Femap with NX Nastran PropOrient 12 : 11,0,2.,1.,2.,5.,6.,1.,5.61402E-4,-5.614E-4
+PBEAM         12       2    9.-61.964-111.964-11-1.11-112.874-12      0.+       
++        5.614-4 5.614-4-4.439-3 5.614-4-4.386-4-4.439-3 5.614-4-4.439-3+       
++           YESA      1.                                                +       
++       .4731567.4731567                                                +       
++                                        -1.05-3 -1.05-3 -1.05-3 -1.05-3        
+$ Femap with NX Nastran Material 1 : GFRP Fabric iso
+MAT1           1   2.+10              .2   1900.      0.      0.        +       
++          4.4+8  4.25+8    4.+7
+$ Femap with NX Nastran Material 2 : T300/EPOXY uni
+MAT1           2 1.35+115.315+10     .27   1580.      0.      0.        
+$ Femap with NX Nastran Material 3 : CFRP (HS) Fabric iso
+MAT1           3   7.+10    5.+9      .1   1580.      0.      0.        +       
++           6.+8   5.7+8    9.+7
+$ Femap with NX Nastran Material 4 : Null material
+MAT1           4      1..3846154      .3      0.      0.      0.        
+$ Femap with NX Nastran Material 5 : Kapton
+MAT1           5   2.5+99.3284+8     .34   1420.      0.      0.        +       
++         2.31+8                
+$ Femap with NX Nastran Material 11 : DuraForm (SLS)
+MAT1          11 1.586+9   6.1+8      .3   1200.      0.      0.        
+$ Femap with NX Nastran Material 101 : E-Glass CAP
+MAT8         101  4.5+10  1.3+10     .29   4.4+9   4.4+9  5.04+9   1727.+       
++             0.      0.      0.  1.78+9    7.+8   6.5+7  1.92+8   6.2+7+       
++                               
+$ Femap with NX Nastran Material 102 : S-Glass CAP
+MAT8         102  5.4+10 1.35+10     .26  4.46+9  4.46+9  5.15+9   1727.+       
++             0.      0.      0.  1.78+9    7.+8   6.5+7  1.92+8   6.2+7+       
++                               
+$ Femap with NX Nastran Material 103 : T300/EPOXY (HT) CAP
+MAT8         103 1.35+11   1.+10     .27    5.+9    5.+9 3.846+9   1580.+       
++             0.      0.      0.  1.45+9   1.4+9   5.5+7   1.7+8    9.+7+       
++                               
+$ Femap with NX Nastran Material 104 : M40/EPOXY (HM) CAP
+MAT8         104  2.2+11    7.+9     .35    5.+9    5.+9 2.917+9   1600.+       
++             0.      0.      0.   1.1+9   1.1+9    5.+7   1.5+8   7.5+7+       
++                               
+$ Femap with NX Nastran Material 105 : GY70/EPOXY (UHM) CAP
+MAT8         105  2.9+11    5.+9     .41    5.+9    5.+9 2.083+9   1600.+       
++             0.      0.      0.   7.5+8    7.+8    4.+7   1.3+8    7.+7+       
++                               
+$ Femap with NX Nastran Material 106 : CFK Prepreg DON134 90 degrees CAP
+MAT8         106  5.4+10  5.4+10     .09    2.+9    2.+9    2.+9   1500.+       
++             0.      0.      0.   5.3+8   3.5+8    5.+8   3.4+8    1.+8+       
++                               
+$ Femap with NX Nastran Material 107 : Aluminium CAP
+MAT1         107   7.+102.692+10      .3   2750.      0.      0.        +       
++           3.+8    3.+8   1.5+8
+$ Femap with NX Nastran Material 108 : Steel CAP
+MAT1         108  2.1+118.077+10      .3   7850.      0.      0.       
+$ Femap with NX Nastran Material 109 : Servo Rod
+MAT1         109   1.+10    5+10      .3     0.1 8.00-8       0.        +       
++           3.+8    3.+8   1.5+8
+$ Femap with NX Nastran Material 112 : Hinge Rod
+MAT1         112   1.+12    5+13      .3     0.1 8.00-8       0.        +       
++           3.+8    3.+8   1.5+8
+$ Femap with NX Nastran Material 110 : CFRP rod swiss composites
+MAT1         110  1.4+11   9.8+9      .3   1600. 8.00-8       0.        +       
++           3.+8    3.+8   1.5+8
+$ Femap with NX Nastran Material 111 : CFRP rod swiss composites no dens
+MAT1         111  1.4+11   9.8+9      .3      1. 8.00-8       0.        +       
++           3.+8    3.+8   1.5+8
+$ Femap with NX Nastran Material 201 : Glass Fabric 105g 91111 SC
+MAT8         201  1.9+10  1.8+10      .35.8846+95.8846+95.8846+9   1700.+       
++             0.      0.      0.                                        +       
++                               
+$ Femap with NX Nastran Material 301 : EAP
+MAT8         301 960000. 720995.     .45 248619. 248619. 248619.   1100.+       
++             0.     .01      0.                                        +       
++                               
+$ Femap with NX Nastran Material 302 : PZT-5A MFC pos
+MAT8         302 3.03+10 1.59+10     .31  5.52+9  5.52+9  5.52+9  5115.9+       
++         4.6-10 -2.1-10      0.                                        +       
++                               
+$ Femap with NX Nastran Material 303 : PZT-5A MFC neg
+MAT8         303 3.03+10 1.59+10     .31  5.52+9  5.52+9  5.52+9  5115.9+       
++        -4.6-10  2.1-10      0.                                        +       
++                               
+$ Femap with NX Nastran Material 304 : PMN-PT MFC pos
+MAT8         304  6.23+91.108+10    .229  2.01+9  2.01+9  2.01+9  5338.3+       
++       1.8965-9-8.61-10      0.                                        +       
++                               
+$ Femap with NX Nastran Material 305 : PMN-PT MFC neg
+MAT8         305  6.23+91.108+10    .229  2.01+9  2.01+9  2.01+9  5338.3+       
++       -1.897-98.612-10      0.                                        +       
++                               
+$ Femap with NX Nastran Material 403 : T700/EPOXY CAP
+MAT8         4031.435+11   9.5+9     .32  6.15+9  6.15+9 3.654+9   1580.+       
++             0.      0.      0.  1.45+9   1.4+9   5.5+7   1.7+8    9.+7+       
++                               
+$ Femap with NX Nastran Material 501 : GFRP Fabric 0.04mm - Dominic
+MAT8         501  2.0+10  2.0+10    .103 3.276+9 3.276+9 3.276+9   1727.+       
++             0.      0.      0.                                        +       
++                               
+$ Femap with NX Nastran Material 502 : CFRP UD 189um -Dominic
+MAT8         5021.172+11 8.159+9      .3  6.15+9  6.15+9   3.6+9   1600.+       
++             0.      0.      0.  2.45+9  6.86+7    5.+7  6.86+7    9.+7+       
++      
+$ $ Femap with NX Nastran Material 503 : CFRP UD Marenco
+$ MAT8         4041.400+11   9.8+9      .3   9.9+9   9.9+9   4.9+9   1600.+       
+$ +             0.      0.      0.  2.10+9  1.73+9  56.5+6  56.5+6  1.02+8+       
+$ +    
+$ $ Femap with NX Nastran Material 502 : CFRP Twill Marenco
+$ MAT8         4056.960+10  6.8+10      .3  4.70+9  4.70+9  2.35+9   1600.+       
+$ +             0.      0.      0.  8.88+8  8.88+8  8.03+8  8.18+8  1.07+8+       
+$ +       
+$ Material 503 : CFRP UD Marenco tested by Marc Lienhard report p.64
+MAT8         4041.120+11   6.9+9      .3   9.9+9   9.9+9   4.9+9   1600.+       
++             0.      0.      0.  2.10+9  1.73+9  56.5+6  56.5+6  1.02+8+       
++    
+$ Material 502 : CFRP Twill Marenco tested by Motostudent report p.54
+MAT8         405 3.83+10 3.83+10      .3  4.70+9  4.70+9  2.35+9   1600.+       
++             0.      0.      0.  8.88+8  8.88+8  8.03+8  8.18+8  1.07+8+       
++                        

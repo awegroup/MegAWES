@@ -1,4 +1,4 @@
-% Copyright 2020 Delft University of Technology
+% Copyright 2021 Delft University of Technology
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -13,29 +13,31 @@
 % limitations under the License.
 
 function handleTime = animation_simtime(Path_last_cycle,pos,index_set,Tend,fps,t)
-%animation_simtime - Animate timer according to datapoint time
+%Animate timer according to datapoint time
 %
-% Inputs:
-%    Path_last_cycle - Aircraft position
-%    Pos - timer position on figure
-%    index_set - Array containing the indices of the dataset that should be
+% :param Path_last_cycle: Aircraft position
+% :param Pos: timer position on figure
+% :param index_set: Array containing the indices of the dataset that should be
 %                used
-%    Tend - Video length
-%    fps - Frames per second
-%    t - animation time at particular step, provided by fanimator()
+% :param Tend: Video length
+% :param fps: Frames per second
+% :param t: animation time at particular step, provided by fanimator()
 %
-% Outputs:
-%    handleTime - Textbox plot handle
+% :returns:
+%           - **handleTime** - Textbox with simulation time plot handle
 %
-% Other m-files required: none
-% Subfunctions (bottom): none
-% MAT-files required: None
+% Example: 
+%       | TimePos = [0.6*limitx(2), limity(2), limitz(2)];
+%       | fanimator(axes1,@animation_simtime,Path_last_cycle,TimePos,index_set,Tend,...
+%       |    fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
 %
-% Author: Dylan Eijkelhof, M.Sc.
-% Delft University of Technology
-% email address: d.eijkelhof@tudelft.nl  
-% September 2020; Last revision: 17 September 2020
-
+% | Other m-files required: None
+% | Subfunctions: None
+% | MAT-files required: None
+%
+% :Revision: 17-September-2020
+% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+ 
 %------------- BEGIN CODE --------------
 
 datapoint = index_set(round(((t/(1/fps))+1)));
@@ -49,7 +51,7 @@ end
 % Current time
 simtime = Path_last_cycle.Time(datapoint)-Path_last_cycle.Time(1);
 
-handleTime = text(pos(1), pos(2),pos(3), {['   Simulation time: ' num2str(simtime)],' '},...
+handleTime = text(pos(1), pos(2),pos(3), {['   Simulation time: ' num2str(simtime) ' s'],' '},...
     'Clipping', 'on', 'Horiz', 'left', 'Vert', 'bottom',...
     'FontSize',20);
 

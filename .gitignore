@@ -8,3 +8,5 @@ resources/
 *.m~
 *_msf.*
 **/Cache_temp
+git.m
+Extra/*.mp4
