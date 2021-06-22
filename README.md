@@ -34,6 +34,7 @@ What things you need to run the software and how to install them.
 	Stateflow (version 10.1)
 	DSP System Toolbox (version 9.9, only needed for tether test cases)
 	```
+	
 2. Install Git and Git-lfs (for instructions how te get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
 3. After installation of git-lfs run the following command in a terminal (Unix, MacOS)/command(Windows) window:
 
@@ -62,36 +63,37 @@ A step by step series of examples that tell you how to get a development env run
 	
 	Two important parameters are set here:
 	
-		```
-		Kite_DOF: Kite degrees of freedom, 3 (point-mass) or 6 (rigid-body)
-		windspeed: Maximum wind speed of the wind shear profile, occurs at 250m altitude and above,
-			3DoF: Always forced to 22m/s
-			6DoF: 8m/s, 10m/s, 14m/s, 16m/s, 18m/s, 20m/s, 22m/s, 25m/s, 28m/s, 30m/s
-		```
+	```
+	Kite_DOF: Kite degrees of freedom, 3 (point-mass) or 6 (rigid-body)
+	windspeed: Maximum wind speed of the wind shear profile, occurs at 250m altitude and above,
+		3DoF: Always forced to 22m/s
+		6DoF: 8m/s, 10m/s, 14m/s, 16m/s, 18m/s, 20m/s, 22m/s, 25m/s, 28m/s, 30m/s
+	```
 
 2. All input variables are set in:
 
 	```
 	Src/Common/Get_simulation_params.m
 	```
+		
 	where base variables are set in:
 	
-		```
-		Src/Common/initAllSimParams_DE2019.m
-		```
-		
-		Following parameters are set:
-		1. Aircraft is loaded from the `DE2019_params.mat` file.
-		2. Environment parameters
-		3. Steady base windspeed, 6m altitude (no turbulence is included at this stage).
-		4. Simulation initialisation parameters
-		5. Simulation constraints
-		6. Tether characteristics
-		7. Winch characteristics
-		8. Flight path shape
-		9. Tether force set-point (tracking)
-		10. Controller gains
-		11. Initialisation phase (loiter)
+	```
+	Src/Common/initAllSimParams_DE2019.m
+	```
+	
+	Following parameters are set:
+	1. Aircraft is loaded from the `DE2019_params.mat` file.
+	2. Environment parameters
+	3. Steady base windspeed, 6m altitude (no turbulence is included at this stage).
+	4. Simulation initialisation parameters
+	5. Simulation constraints
+	6. Tether characteristics
+	7. Winch characteristics
+	8. Flight path shape
+	9. Tether force set-point (tracking)
+	10. Controller gains
+	11. Initialisation phase (loiter)
 
 3. In the simulink models for both 3 and 6 DoF, the output parameters are defined in block:
 
