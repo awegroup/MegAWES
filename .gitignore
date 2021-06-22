@@ -3,7 +3,6 @@ slprj/
 **/.DS_Store
 *.prj
 *.slx.*
-*.html
 resources/
 *.m~
 *_msf.*

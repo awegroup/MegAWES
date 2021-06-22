@@ -1,0 +1,1766 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Functions and Simulink models &mdash; MegAWES 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Readme" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MegAWES
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#megawes-3dof-6dof-kite-dynamics">MegAWES (3DoF &amp; 6DoF kite dynamics)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions and Simulink models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-Src.Common">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-simulink-model">Main simulink model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulink-parts">Simulink parts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flight-controller">Flight controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flightpaths">Flightpaths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ground-station">Ground station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tether-dynamics">Tether dynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Src.Offline_visualisation">Offline visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MegAWES</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Functions and Simulink models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="functions-and-simulink-models">
+<h1>Functions and Simulink models<a class="headerlink" href="#functions-and-simulink-models" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-Src.Common">
+<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-Src.Common" title="Permalink to this headline">¶</a></h2>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Get_simulation_params">
+<span class="sig-name descname"><span class="pre">Get_simulation_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windspeed</span></em>, <em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Get_simulation_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise simulation parameters for the complete system and set optimised parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windspeed</strong> – Wind speed at which the parameters should be read</p></li>
+<li><p><strong>Kite_DOF</strong> – Degrees of freedom of the kite (3 or 6)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>act</strong> - Actuator, aileron elevator and rudder data</p></li>
+<li><p><strong>base_windspeed</strong> - Wind speed at max altitude where speed stays constant</p></li>
+<li><p><strong>constr</strong> - Aircraft manoeuvre and winch constraints</p></li>
+<li><p><strong>ENVMT</strong> - Environmental parameters</p></li>
+<li><p><strong>Lbooth</strong> - Flight path parameters</p></li>
+<li><p><strong>loiterStates</strong> - Initial loiter parameters (power cycle initialisation)</p></li>
+<li><p><strong>DE2019</strong> - Aircraft parameters</p></li>
+<li><p><strong>simInit</strong> - Simulation initialisation parameters</p></li>
+<li><p><strong>T</strong> - Tether dimensions and material properties</p></li>
+<li><p><strong>winchParameter</strong> - Winch dynamic parameters</p></li>
+<li><p><strong>params</strong> - Flight/Winch controller parameters</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example:</dt><dd><div class="line-block">
+<div class="line">[act, base_windspeed, constr, DE2019, ENVMT, Lbooth, …</div>
+<div class="line-block">
+<div class="line">loiterStates, params, simInit, T, winchParameter] = …</div>
+<div class="line">get_simulation_params(22, 6)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: initAllSimParams_DE2019.m</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-March-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.PreSim_startup">
+<span class="sig-name descname"><span class="pre">PreSim_startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.PreSim_startup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set search path, simulink cache folder and clear variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>PreSim_startup();</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.initAllSimParams_DE2019">
+<span class="sig-name descname"><span class="pre">initAllSimParams_DE2019</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllSimParams_DE2019" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise simulation parameters for the complete system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Kite_DOF</strong> – Degrees of freedom of the kite (3 or 6)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>act</strong> - Actuator, aileron elevator and rudder data</p></li>
+<li><p><strong>base_windspeed</strong> - Wind speed at max altitude where speed stays constant</p></li>
+<li><p><strong>constr</strong> - Aircraft manoeuvre and winch constraints</p></li>
+<li><p><strong>ENVMT</strong> - Environmental parameters</p></li>
+<li><p><strong>Lbooth</strong> - Flight path parameters</p></li>
+<li><p><strong>loiterStates</strong> - Initial loiter parameters (power cycle initialisation)</p></li>
+<li><p><strong>DE2019</strong> - Aircraft parameters</p></li>
+<li><p><strong>simInit</strong> - Simulation initialisation parameters</p></li>
+<li><p><strong>T</strong> - Tether dimensions and material properties</p></li>
+<li><p><strong>winchParameter</strong> - Winch dynamic parameters</p></li>
+<li><p><strong>params</strong> - Flight/Winch controller parameters</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example:</dt><dd><div class="line-block">
+<div class="line">[act, base_windspeed, constr, ENVMT, Lbooth, …</div>
+<div class="line-block">
+<div class="line">loiterStates, DE2019, simInit, T, winchParameter,params] = initAllSimParams_DE2019()</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoO.m, transformFromOtoW.m, getPointOnBooth.m</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: Lib/Common/DE2019_params.mat, Lib/6DoF/Control_allocation_V60.mat, Lib/Common/winddata_Lidar_Avg.mat</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>22-June-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.initAllStructs">
+<span class="sig-name descname"><span class="pre">initAllStructs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">base_windspeed</span></em>, <em class="sig-param"><span class="pre">constr</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">Lbooth</span></em>, <em class="sig-param"><span class="pre">loiterStates</span></em>, <em class="sig-param"><span class="pre">DE2019</span></em>, <em class="sig-param"><span class="pre">simInit</span></em>, <em class="sig-param"><span class="pre">T</span></em>, <em class="sig-param"><span class="pre">winchParameter</span></em>, <em class="sig-param"><span class="pre">params</span></em>, <em class="sig-param"><span class="pre">act</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.initAllStructs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise simulation input variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – simulink model name (without .slx extension).</p></li>
+<li><p><strong>base_windspeed</strong> – Wind speed at max altitude where speed stays constant.</p></li>
+<li><p><strong>constr</strong> – Aircraft manoeuvre and winch constraints.</p></li>
+<li><p><strong>ENVMT</strong> – Environmental parameters.</p></li>
+<li><p><strong>Lbooth</strong> – Flight path parameters.</p></li>
+<li><p><strong>loiterStates</strong> – Initial loiter parameters (power cycle initialisation).</p></li>
+<li><p><strong>DE2019</strong> – Aircraft parameters.</p></li>
+<li><p><strong>simInit</strong> – Simulation initialisation parameters.</p></li>
+<li><p><strong>T</strong> – Tether dimensions and material properties.</p></li>
+<li><p><strong>winchParameter</strong> – Winch dynamic parameters.</p></li>
+<li><p><strong>params</strong> – Flight/Winch controller parameters.</p></li>
+<li><p><strong>act</strong> – Actuator, aileron elevator and rudder data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>simIn</strong> - Actuator, aileron elevator and rudder data.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example:</dt><dd><div class="line-block">
+<div class="line">simIn = initAllStructs(‘Dyn_6DoF_v2_0_r2019b’, base_windspeed, constr, … </div>
+<div class="line-block">
+<div class="line">ENVMT, Lbooth, loiterStates, DE2019, simInit, T, winchParameter,params,act)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoO.m, transformFromOtoW.m, getPointOnBooth.m</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: Lib/Common/DE2019_params.mat, Lib/6DoF/Control_allocation_V60.mat, Lib/Common/winddata_Lidar_Avg.mat</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>22-June-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-Extra"></span><dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.Video_from_simOut">
+<span class="sig-name descname"><span class="pre">Video_from_simOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">simOut</span></em>, <em class="sig-param"><span class="pre">simInit</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">DE2019</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.Video_from_simOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an animation object or video from sim output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – Name of the video file, including extension
+If [] is provided, no video file is created</p></li>
+<li><p><strong>simOut</strong> – Simulink simulation output</p></li>
+<li><p><strong>simInit</strong> – Simulation initialisation parameters</p></li>
+<li><p><strong>ENVMT</strong> – Environmental parameters</p></li>
+<li><p><strong>DE2019</strong> – Aircraft parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>noVar</strong> - Video file</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">Video_from_simOut(‘test.mp4’, simOut,simInit,ENVMT,DE2019)</div>
+<div class="line"><br /></div>
+<div class="line">Video_from_simOut([], simOut,simInit,ENVMT,DE2019)</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: animate_flightpath.m, extractSignalOfLastCycle2.m, extractSignalOfLastCycle3D.m, extractSignalOfLastCycle_nD.m</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>16-March-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.animate_flightpath">
+<span class="sig-name descname"><span class="pre">animate_flightpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">FileName</span></em>, <em class="sig-param"><span class="pre">P_mech_last_cycle</span></em>, <em class="sig-param"><span class="pre">Path_last_cycle</span></em>, <em class="sig-param"><span class="pre">EulAng_last_cycle</span></em>, <em class="sig-param"><span class="pre">Tether_last_cycle_x</span></em>, <em class="sig-param"><span class="pre">Tether_last_cycle_y</span></em>, <em class="sig-param"><span class="pre">Tether_last_cycle_z</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">Wingspan</span></em>, <em class="sig-param"><span class="pre">Tend</span></em>, <em class="sig-param"><span class="pre">fps</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.animate_flightpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create flight path animation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FileName</strong> – Name of the video file, including extension, 
+If [] is provided, no video file is created.</p></li>
+<li><p><strong>P_mech_last_cycle</strong> – Instantaneous power.</p></li>
+<li><p><strong>Path_last_cycle</strong> – Aircraft position.</p></li>
+<li><p><strong>EulAng_last_cycle</strong> – Aircraft orientation angles.</p></li>
+<li><p><strong>Tether_last_cycle_x</strong> – Tether particle x positions.</p></li>
+<li><p><strong>Tether_last_cycle_y</strong> – Tether particle y positions.</p></li>
+<li><p><strong>Tether_last_cycle_z</strong> – Tether particle z positions.</p></li>
+<li><p><strong>ENVMT</strong> – Environment data for wind direction.</p></li>
+<li><p><strong>Wingspan</strong> – Kite wing span.</p></li>
+<li><p><strong>Tend</strong> – Video length.</p></li>
+<li><p><strong>fps</strong> – Video frames per second.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>noVar</strong> - Video file</p></li>
+<li><p><strong>FileName</strong> - The video file name (if created) else empty array</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">animate_flightpath_torque(‘test.mp4’,P_mech_last_cycle,…</div>
+<div class="line-block">
+<div class="line">Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,…</div>
+<div class="line">Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,45,30);</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">animate_flightpath_torque([],P_mech_last_cycle,…</div>
+<div class="line-block">
+<div class="line">Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,…</div>
+<div class="line">Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,45,30);</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: animation_aircraft.m, animation_tether.m, animation_simtime.m, animation_colorbar.m</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>28-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.animation_aircraft">
+<span class="sig-name descname"><span class="pre">animation_aircraft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Path_last_cycle</span></em>, <em class="sig-param"><span class="pre">EulAng_last_cycle</span></em>, <em class="sig-param"><span class="pre">windDir</span></em>, <em class="sig-param"><span class="pre">index_set</span></em>, <em class="sig-param"><span class="pre">scale</span></em>, <em class="sig-param"><span class="pre">Tend</span></em>, <em class="sig-param"><span class="pre">fps</span></em>, <em class="sig-param"><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.animation_aircraft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animate aircraft position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Path_last_cycle</strong> – Aircraft position</p></li>
+<li><p><strong>EulAng_last_cycle</strong> – Aircraft orientation angles</p></li>
+<li><p><strong>windDir</strong> – Wind direction</p></li>
+<li><p><strong>index_set</strong> – Array containing the indices of the dataset that should be
+used</p></li>
+<li><p><strong>scale</strong> – Aircraft illustration scale (actual scale/1.2886)</p></li>
+<li><p><strong>Tend</strong> – Video length</p></li>
+<li><p><strong>fps</strong> – Frames per second</p></li>
+<li><p><strong>t</strong> – animation time at particular step, provided by fanimator()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>p</strong> - Aircraft plot handle</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">fanimator(axes1,&#64;animation_aircraft,Path_last_cycle,EulAng_last_cycle,…</div>
+<div class="line-block">
+<div class="line">ENVMT.windDirection_rad,Tend,fps,t,’AnimationRange’,[0 Tend],’FrameRate’,fps)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions (bottom): drawVehicleBody2, rotate_PhiThetaPsi, translate_3D</div>
+<div class="line">MAT-files required: plane_image.mat</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.animation_colorbar">
+<span class="sig-name descname"><span class="pre">animation_colorbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Power</span></em>, <em class="sig-param"><span class="pre">index_set</span></em>, <em class="sig-param"><span class="pre">Tend</span></em>, <em class="sig-param"><span class="pre">fps</span></em>, <em class="sig-param"><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.animation_colorbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animate instantaneous power on colorbar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Path_last_cycle</strong> – Aircraft position</p></li>
+<li><p><strong>index_set</strong> – Array containing the indices of the dataset that should be
+used</p></li>
+<li><p><strong>Tend</strong> – Video length</p></li>
+<li><p><strong>fps</strong> – Frames per second</p></li>
+<li><p><strong>t</strong> – animation time at particular step, provided by fanimator()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>handleLine</strong> - Line moving over colorbar plot handle</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">h_axes = axes(‘Parent’,fig_pow,’position’, cb.Position, ‘ylim’, …</div>
+<div class="line-block">
+<div class="line">cb.Limits, ‘color’, ‘none’, ‘visible’,’off’);</div>
+</div>
+<div class="line">fanimator(h_axes,&#64;animation_colorbar,Power,Tend,…</div>
+<div class="line-block">
+<div class="line">fps,t,’AnimationRange’,[0 Tend],’FrameRate’,fps)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.animation_simtime">
+<span class="sig-name descname"><span class="pre">animation_simtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Path_last_cycle</span></em>, <em class="sig-param"><span class="pre">pos</span></em>, <em class="sig-param"><span class="pre">index_set</span></em>, <em class="sig-param"><span class="pre">Tend</span></em>, <em class="sig-param"><span class="pre">fps</span></em>, <em class="sig-param"><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.animation_simtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animate timer according to datapoint time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Path_last_cycle</strong> – Aircraft position</p></li>
+<li><p><strong>Pos</strong> – timer position on figure</p></li>
+<li><p><strong>index_set</strong> – Array containing the indices of the dataset that should be
+used</p></li>
+<li><p><strong>Tend</strong> – Video length</p></li>
+<li><p><strong>fps</strong> – Frames per second</p></li>
+<li><p><strong>t</strong> – animation time at particular step, provided by fanimator()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>handleTime</strong> - Textbox with simulation time plot handle</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">TimePos = [0.6*limitx(2), limity(2), limitz(2)];</div>
+<div class="line">fanimator(axes1,&#64;animation_simtime,Path_last_cycle,TimePos,index_set,Tend,…</div>
+<div class="line-block">
+<div class="line">fps,t,’AnimationRange’,[0 Tend],’FrameRate’,fps)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.animation_tether">
+<span class="sig-name descname"><span class="pre">animation_tether</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Path_last_cycle</span></em>, <em class="sig-param"><span class="pre">tether_last_cycle</span></em>, <em class="sig-param"><span class="pre">index_set</span></em>, <em class="sig-param"><span class="pre">Tend</span></em>, <em class="sig-param"><span class="pre">fps</span></em>, <em class="sig-param"><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.animation_tether" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animate tether shape</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Path_last_cycle</strong> – Aircraft position</p></li>
+<li><p><strong>tether_last_cycle</strong> – Tether particle xyz positions</p></li>
+<li><p><strong>index_set</strong> – Array containing the indices of the dataset that should be
+used</p></li>
+<li><p><strong>Tend</strong> – Video length</p></li>
+<li><p><strong>fps</strong> – Frames per second</p></li>
+<li><p><strong>t</strong> – animation time at particular step, provided by fanimator()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>handleParticles</strong> - Tether plot handle</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl>
+<dt>Example: </dt><dd><div class="line-block">
+<div class="line">fanimator(axes1,&#64;animation_tether,Path_last_cycle,Tether_last_cycle,Tend,…</div>
+<div class="line-block">
+<div class="line">fps,t,’AnimationRange’,[0 Tend],’FrameRate’,fps)</div>
+</div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions (bottom): drawParticleTether</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>17-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Extra.exportToPreviousVersion">
+<span class="sig-name descname"><span class="pre">exportToPreviousVersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">ModelName</span></em>, <em class="sig-param"><span class="pre">Version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.exportToPreviousVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given simulink model is exported to a previous version.</p>
+<dl class="simple">
+<dt>If the model contains referenced models (separate .slx files)</dt><dd><p>these files are also tracked and exported to older versions. The Main
+simulink model is then adapted to refer to the files compatible in the
+same version.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ModelName</strong> – Original model name</p></li>
+<li><p><strong>Version</strong> – Matlab version to export to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Simulink model exported to given version</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>exportToPreviousVersion(‘Dyn_PointMass_r2019b’,’R2015B’)</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: None</div>
+<div class="line">Subfunctions: None</div>
+<div class="line">MAT-files required: None</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>28-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="main-simulink-model">
+<h2>Main simulink model<a class="headerlink" href="#main-simulink-model" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" src="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" />
+</div>
+</div>
+<div class="section" id="simulink-parts">
+<h2>Simulink parts<a class="headerlink" href="#simulink-parts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="environment">
+<h3>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" src="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" />
+</div>
+<span class="target" id="module-Src.Common.Environment"></span></div>
+<div class="section" id="flight-controller">
+<h3>Flight controller<a class="headerlink" href="#flight-controller" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" src="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" />
+</div>
+<span class="target" id="module-Src.Common.FlightController"></span><div class="section" id="flightpaths">
+<h4>Flightpaths<a class="headerlink" href="#flightpaths" title="Permalink to this headline">¶</a></h4>
+<p>These functions are called by the PathFollowingController.</p>
+<span class="target" id="module-Src.Common.Flightpaths"></span><dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.calcCourse2ClosestPoint">
+<span class="sig-name descname"><span class="pre">calcCourse2ClosestPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p_VT_W</span></em>, <em class="sig-param"><span class="pre">p_kite_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.calcCourse2ClosestPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the desired course in the tangential plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_VT_W</strong> – An instance of this class.</p></li>
+<li><p><strong>p_kite_W</strong> – position of the kite in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_K_des</strong> - the desired course</p></li>
+<li><p><strong>bearing_vec_W</strong> - vector pointing to the desired point</p></li>
+<li><p><strong>bearing_sign</strong> - vector sign</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Revision</dt>
+<dd class="field-even"><p>28.08.2017</p>
+</dd>
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.calculateCommandedCourse2">
+<span class="sig-name descname"><span class="pre">calculateCommandedCourse2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">delta_vec</span></em>, <em class="sig-param"><span class="pre">delta</span></em>, <em class="sig-param"><span class="pre">delta0</span></em>, <em class="sig-param"><span class="pre">chi_parallel</span></em>, <em class="sig-param"><span class="pre">L_sol</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">v_w_vec</span></em>, <em class="sig-param"><span class="pre">chi_tau_is</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.calculateCommandedCourse2" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the desired course</p>
+<p>check sign with curve frame - y component is negative in this frame -
+delta Chi is positive and vice versa.
+add a predictive part to smooth highly curved paths.</p>
+<div class="line-block">
+<div class="line">Other m-files required: wrapCourseError.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.doRodriguesRotation">
+<span class="sig-name descname"><span class="pre">doRodriguesRotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">p_target_W</span></em>, <em class="sig-param"><span class="pre">v</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.doRodriguesRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function performs the Rodrigues Rotation on a vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos_W</strong> – Kite position, used to define plane of rotation</p></li>
+<li><p><strong>p_target_W</strong> – Target position, used to define plane of rotation</p></li>
+<li><p><strong>v</strong> – Vector to rotate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vrot</strong> - Rotated vector</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.getChiDotGammaDotOK">
+<span class="sig-name descname"><span class="pre">getChiDotGammaDotOK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">v_k_W</span></em>, <em class="sig-param"><span class="pre">chi_tau_dot</span></em>, <em class="sig-param"><span class="pre">r</span></em>, <em class="sig-param"><span class="pre">chi_k</span></em>, <em class="sig-param"><span class="pre">gamma_k</span></em>, <em class="sig-param"><span class="pre">v_ideal</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">gamma_tau</span></em>, <em class="sig-param"><span class="pre">gamma_tau_dot</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.getChiDotGammaDotOK" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the time derivative of the course and path angles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>v_k_W</strong> – Kite velocity in wind reference frame.</p></li>
+<li><p><strong>chi_tau_dot</strong> – Time derivative of the course angle in the tangential plane.</p></li>
+<li><p><strong>r</strong> – Distance between kite and ground station.</p></li>
+<li><p><strong>chi_k</strong> – Course angle in kinetic reference frame.</p></li>
+<li><p><strong>gamma_k</strong> – Path angle in kinetic reference frame.</p></li>
+<li><p><strong>v_ideal</strong> – Total kinetic velocity in wind reference frame.</p></li>
+<li><p><strong>pos_W</strong> – Position of the kite in wind reference frame.</p></li>
+<li><p><strong>gamma_tau</strong> – Path angle in the tangential plane.</p></li>
+<li><p><strong>gamma_tau_dot</strong> – Time derivative of the path angle in the tangential plane.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_dot</strong> - Course rate</p></li>
+<li><p><strong>gamma_dot</strong> - Path rate</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoO.m, transformFromWtoTau.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Revision</dt>
+<dd class="field-even"><p>28.08.2017</p>
+</dd>
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.predictChiDotRequ">
+<span class="sig-name descname"><span class="pre">predictChiDotRequ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">v_w_vec</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">p_C_W</span></em>, <em class="sig-param"><span class="pre">t</span></em>, <em class="sig-param"><span class="pre">DtDs</span></em>, <em class="sig-param"><span class="pre">chi_parallel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.predictChiDotRequ" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the course rate in the tangential plane based on the path curvature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>v_w_vec</strong> – Kite velocity in wind reference frame.</p></li>
+<li><p><strong>pos_W</strong> – Position of the kite in wind reference frame.</p></li>
+<li><p><strong>p_C_W</strong> – Closest position on Lissajous figure.</p></li>
+<li><p><strong>t</strong> – Tangent at p_C_W.</p></li>
+<li><p><strong>DtDs</strong> – Derivative of the tangent with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>chi_parallel</strong> – Required course angle to reach p_C_W.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>chi_tau_dot</strong> - Required course rate in the tangential plane</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: transformFromWtoTau.m, doRodriguesRotation.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromAbar2B">
+<span class="sig-name descname"><span class="pre">transformFromAbar2B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mu_a</span></em>, <em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_Abar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromAbar2B" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between rotated aerodynamic reference frame and body reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu_a</strong> – Roll angle.</p></li>
+<li><p><strong>alpha</strong> – Pitch angle (Angle of Attack).</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_Abar</strong> – Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_B</strong> - Vector in body reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromAbartoO">
+<span class="sig-name descname"><span class="pre">transformFromAbartoO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_a</span></em>, <em class="sig-param"><span class="pre">gamma_a</span></em>, <em class="sig-param"><span class="pre">vec_Abar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromAbartoO" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between rotated aerodynamic reference frame and inertial reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chi_a</strong> – Course angle.</p></li>
+<li><p><strong>gamma_a</strong> – Path angle.</p></li>
+<li><p><strong>vec_Abar</strong> – Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_O</strong> - Vector in inertial reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromAtoB">
+<span class="sig-name descname"><span class="pre">transformFromAtoB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_A</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromAtoB" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between aerodynamic reference frame and body reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_A</strong> – Vector in aerodynamic reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_B</strong> - Vector in body reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromBtoA">
+<span class="sig-name descname"><span class="pre">transformFromBtoA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_B</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromBtoA" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between body reference frame and aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_B</strong> – Vector in body reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_A</strong> - Vector in aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromBtoAbar">
+<span class="sig-name descname"><span class="pre">transformFromBtoAbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mu_a</span></em>, <em class="sig-param"><span class="pre">alpha</span></em>, <em class="sig-param"><span class="pre">beta</span></em>, <em class="sig-param"><span class="pre">vec_B</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromBtoAbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between body reference frame and aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu_a</strong> – Roll angle.</p></li>
+<li><p><strong>alpha</strong> – Pitch angle.</p></li>
+<li><p><strong>beta</strong> – Yaw angle.</p></li>
+<li><p><strong>vec_B</strong> – Vector in body reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_Abar</strong> - Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromOtoAbar">
+<span class="sig-name descname"><span class="pre">transformFromOtoAbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_a</span></em>, <em class="sig-param"><span class="pre">gamma_a</span></em>, <em class="sig-param"><span class="pre">vec_O</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromOtoAbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between inertial reference frame and rotated aerodynamic reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chi_a</strong> – Course angle.</p></li>
+<li><p><strong>gamma_a</strong> – Path angle.</p></li>
+<li><p><strong>vec_O</strong> – Vector in inertial reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_Abar</strong> - Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromOtoW">
+<span class="sig-name descname"><span class="pre">transformFromOtoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">vec_O</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromOtoW" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between inertial reference frame and wind reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>vec_O</strong> – Vector in inertial reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_W</strong> - Vector in wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Axis system is not only rotated around the z-axis but also also flipped upside down. <span class="math notranslate nohighlight">\(Z_W = -Z_O\)</span>.</p>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromTautoW">
+<span class="sig-name descname"><span class="pre">transformFromTautoW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">vec_tau</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromTautoW" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector in the tangential plane to the wind reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>vec_tau</strong> – Vector in the tangential plane.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_W</strong> - Vector in wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromWtoO">
+<span class="sig-name descname"><span class="pre">transformFromWtoO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windDirection_rad</span></em>, <em class="sig-param"><span class="pre">vec_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromWtoO" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector between wind reference frame and inertial reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection_rad</strong> – Angle between the wind reference frame and the inertial reference frame around the z-axis.</p></li>
+<li><p><strong>vec_W</strong> – Vector in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_O</strong> - Vector in inertial reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Axis system is not only rotated around the z-axis but also also flipped upside down. <span class="math notranslate nohighlight">\(Z_O = -Z_W\)</span>.</p>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.transformFromWtoTau">
+<span class="sig-name descname"><span class="pre">transformFromWtoTau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">long</span></em>, <em class="sig-param"><span class="pre">lat</span></em>, <em class="sig-param"><span class="pre">vec_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.transformFromWtoTau" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function transforms a vector in the wind reference frame to the tangential plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>long</strong> – Longtitude position of the kite.</p></li>
+<li><p><strong>lat</strong> – Latitude position of the kite.</p></li>
+<li><p><strong>vec_W</strong> – Vector in wind reference frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_tau</strong> - Vector in the tangential plane.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.wrapCourseError">
+<span class="sig-name descname"><span class="pre">wrapCourseError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">chi_ref</span></em>, <em class="sig-param"><span class="pre">chi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.wrapCourseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapping of course angle error</p>
+<p>The vectors are laying in the tangential plane attached to the current position on the small earth.</p>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-Src.Common.Flightpaths.boothLem"></span><dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.boothLem.doNewtonIterationBooth2">
+<span class="sig-name descname"><span class="pre">doNewtonIterationBooth2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s_old</span></em>, <em class="sig-param"><span class="pre">Lem</span></em>, <em class="sig-param"><span class="pre">pos_W</span></em>, <em class="sig-param"><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.boothLem.doNewtonIterationBooth2" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function performs a newton iteration to find the closest point on the Lissajous figure from the kite position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_old</strong> – Old Lissajous path parameter s (0≤s≤2π)</p></li>
+<li><p><strong>Lem</strong> – Lissajous figure dimension parameter structure.</p></li>
+<li><p><strong>pos_W</strong> – Position of the kite in wind reference frame.</p></li>
+<li><p><strong>direction</strong> – Flight direction on Lissajous.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>s_new</strong> - New Lissajous path parameter s (0≤s≤2π).</p></li>
+<li><p><strong>exceedMaxIter</strong> - Returns 1 when maximum number of iterations (10) is exceeded.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: getBoothInfos2.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.boothLem.getBoothInfos2">
+<span class="sig-name descname"><span class="pre">getBoothInfos2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">s_old</span></em>, <em class="sig-param"><span class="pre">Lbooth</span></em>, <em class="sig-param"><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.boothLem.getBoothInfos2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the tangent at path position s_old and its derivative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_old</strong> – Old Lissajous path parameter s (0≤s≤2π)</p></li>
+<li><p><strong>Lbooth</strong> – Lissajous figure dimension parameter structure.</p></li>
+<li><p><strong>direction</strong> – Flight direction on Lissajous.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>t</strong> - Tangent.</p></li>
+<li><p><strong>DtDs</strong> - Derivative of the tangent with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>L</strong> - Lemniscate of Booth</p></li>
+<li><p><strong>dLds</strong> - Derivative of the Lemniscate with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>q</strong> - Path in cartesian coordinates in the wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.boothLem.getPointOnBooth">
+<span class="sig-name descname"><span class="pre">getPointOnBooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">b</span></em>, <em class="sig-param"><span class="pre">phi</span></em>, <em class="sig-param"><span class="pre">l_tether</span></em>, <em class="sig-param"><span class="pre">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.boothLem.getPointOnBooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the tangent at path position s_old and its derivative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_old</strong> – Old Lissajous path parameter s (0≤s≤2π)</p></li>
+<li><p><strong>Lbooth</strong> – Lissajous figure dimension parameter structure.</p></li>
+<li><p><strong>direction</strong> – Flight direction on Lissajous.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>t</strong> - Tangent.</p></li>
+<li><p><strong>DtDs</strong> - Derivative of the tangent with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>L</strong> - Lemniscate of Booth</p></li>
+<li><p><strong>dLds</strong> - Derivative of the Lemniscate with respect to the position on the Lissajous figure.</p></li>
+<li><p><strong>q</strong> - Path in cartesian coordinates in the wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: updateBoothLemniscate.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.boothLem.getTargetOnBoothNewton2">
+<span class="sig-name descname"><span class="pre">getTargetOnBoothNewton2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Lem</span></em>, <em class="sig-param"><span class="pre">p_kite_W</span></em>, <em class="sig-param"><span class="pre">c0</span></em>, <em class="sig-param"><span class="pre">l_tether</span></em>, <em class="sig-param"><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.boothLem.getTargetOnBoothNewton2" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function calculates the closest point on the Lissajous figure from the kite position by means of newton iterations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Lem</strong> – Lissajous figure dimension parameter structure.</p></li>
+<li><p><strong>p_kite_W</strong> – Kite position in wind reference frame.</p></li>
+<li><p><strong>c0</strong> – Old Lissajous path parameter s (0≤s≤2π).</p></li>
+<li><p><strong>l_tether</strong> – Current tether length.</p></li>
+<li><p><strong>direction</strong> – Flight direction on Lissajous.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sol</strong> - New Lissajous path parameter s (0≤s≤2π).</p></li>
+<li><p><strong>p_C_W</strong> - Closest position on Lissajous figure in wind reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: doNewtonIterationBooth2.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Common.Flightpaths.boothLem.updateBoothLemniscate">
+<span class="sig-name descname"><span class="pre">updateBoothLemniscate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">l_tether</span></em>, <em class="sig-param"><span class="pre">Lbooth</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.boothLem.updateBoothLemniscate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function scales the Lissajous figure by tether length</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l_tether</strong> – Current tether length.</p></li>
+<li><p><strong>Lbooth</strong> – Lissajous figure dimension parameter structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Lem</strong> - Scaled Lissajous figure dimension parameter structure.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Version</dt>
+<dd class="field-odd"><p>1.0</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Sebastian Rapp</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="ground-station">
+<h3>Ground station<a class="headerlink" href="#ground-station" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-ad6ca5834357ed4e703a18da6fa44b52809c8028.png" src="_images/simulink-diagram-ad6ca5834357ed4e703a18da6fa44b52809c8028.png" />
+</div>
+<span class="target" id="module-Src.Common.GroundStation"></span></div>
+<div class="section" id="tether-dynamics">
+<h3>Tether dynamics<a class="headerlink" href="#tether-dynamics" title="Permalink to this headline">¶</a></h3>
+<p>The functions are described inside simulink.</p>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-91c89f8b3d3ada69afe2f9ac3185366f96e15a32.png" src="_images/simulink-diagram-91c89f8b3d3ada69afe2f9ac3185366f96e15a32.png" />
+</div>
+<span class="target" id="module-Src.Common.Tether"></span></div>
+<div class="section" id="module-Src.Offline_visualisation">
+<span id="offline-visualisation"></span><h3>Offline visualisation<a class="headerlink" href="#module-Src.Offline_visualisation" title="Permalink to this headline">¶</a></h3>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.Offline_visualisation_power">
+<span class="sig-name descname"><span class="pre">Offline_visualisation_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">P_mech_last_cycle</span></em>, <em class="sig-param"><span class="pre">Path_last_cycle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.Offline_visualisation_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot power curve and flight path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P_mech_last_cycle</strong> – Converged cycle timeseries of power</p></li>
+<li><p><strong>Path_last_cycle</strong> – Converged cycle timeseries of kite position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>Offline_visualisation(P_mech_last_cycle,Path_last_cycle);</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: enhance_plot.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>01-September-2020</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.Theoretical_Pcheck">
+<span class="sig-name descname"><span class="pre">Theoretical_Pcheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">simOut</span></em>, <em class="sig-param"><span class="pre">constr</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">DE2019</span></em>, <em class="sig-param"><span class="pre">simInit</span></em>, <em class="sig-param"><span class="pre">T</span></em>, <em class="sig-param"><span class="pre">params</span></em>, <em class="sig-param"><span class="pre">fig_PO</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.Theoretical_Pcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Theoretical check, add values to instantaneous power plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simOut</strong> – Simulation output</p></li>
+<li><p><strong>constr</strong> – Aircraft manoeuvre and winch constraints</p></li>
+<li><p><strong>ENVMT</strong> – Environmental parameters</p></li>
+<li><p><strong>DE2019</strong> – Aircraft parameters</p></li>
+<li><p><strong>simInit</strong> – Simulation initialisation parameters</p></li>
+<li><p><strong>T</strong> – Tether dimensions and material properties</p></li>
+<li><p><strong>params</strong> – Flight/Winch controller parameters</p></li>
+<li><p><strong>fig_PO</strong> – Instantaneous power figure (Offline_visualisation_power.m)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig_PO</strong> - Instantaneous power plot of converged power cycle with theoretical power.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: Offline_visualisation_power.m(if fig_PO not given), extractSignalOfLastCycle_nD.m</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>14-April-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Loyd peak power with cosine losses from cycle CL and CD,</p></li>
+<li><p>Costello et al. average power from cycle CL and CD</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.enhance_plot">
+<span class="sig-name descname"><span class="pre">enhance_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fontname</span></em>, <em class="sig-param"><span class="pre">fontsize</span></em>, <em class="sig-param"><span class="pre">linewid</span></em>, <em class="sig-param"><span class="pre">markersiz</span></em>, <em class="sig-param"><span class="pre">lgd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.enhance_plot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Function to enhance MATLAB’s lousy text choices on plots.  Sets the</dt><dd><p>current figure’s Xlabel, Ylabel, Title, and all Text on plots, plus
+the axes-labels to the “fontname” and “fontsize” input here where
+the defaults have been set to ‘times’ and 16.
+Also sets all plotted lines to “linewid” and all markers to size
+“markersiz”.  The defaults are 2 and 8.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fontname</strong> – (Optional,DEF=’TIMES’) FontName string to use MATLAB’s ugly default is ‘Helvetica’</p></li>
+<li><p><strong>fontsize</strong> – (Optional,DEF=16) FontSize integer to use MATLAB’s tiny default is 10</p></li>
+<li><p><strong>linewid</strong> – (Optional,DEF=2) LineWidth integer to use MATLAB’s skinny default is 0.5</p></li>
+<li><p><strong>markersiz</strong> – (Optional,DEF=8) MarkerSize integer to use MATLAB’s squinty default is 6</p></li>
+<li><p><strong>lgd</strong> – <ul>
+<li><p>(Optional, DEF=0)</p></li>
+<li><p>if is 0, doesn’t change the legend</p></li>
+<li><p>if is 1, changes only the lines on the legend</p></li>
+<li><p>if is 2, changes both the lines and the text</p></li>
+<li><p>if is 3, changes only the text for all inputs,</p></li>
+<li><p>if pass 0, use default</p></li>
+<li><p>if pass -1, use MATLAB’s default</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vec_Abar</strong> - Vector in rotated aerodynamic reference frame.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Modifications</div>
+<div class="line">19-Feb-2002 J. Nelson - added linewid and markersiz to help squinting readers</div>
+<div class="line">20-Feb-2002 J. Nelson - added check for legend.  If legend exists, increase the 
+line and marker size, also increase the font to 
+fontsize-2 (2 points smaller than title and labels)</div>
+<div class="line">25-Feb-2002 J. Nelson - added lgd (legend) input check to fix legend problems.</div>
+</div>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.extractSignalOfLastCycle2">
+<span class="sig-name descname"><span class="pre">extractSignalOfLastCycle2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">signal</span></em>, <em class="sig-param"><span class="pre">sample_count_last_cycle</span></em>, <em class="sig-param"><span class="pre">simInit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.extractSignalOfLastCycle2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract 1D data from last converged power cycle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> – Full 1D timeseries simulation output.</p></li>
+<li><p><strong>sample_count_last_cycle</strong> – Simulation timeseries ‘sample_count_last_cycle’.</p></li>
+<li><p><strong>simInit</strong> – Simulation input structure ‘simInit’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> - Extracted power cycle 1D timeseries.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>P_mech_last_cycle = extractSignalOfLastCycle2(P_mech, cycle_signal_counter, simInit);</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>December-2019</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Sebastian Rapp, Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.extractSignalOfLastCycle3D">
+<span class="sig-name descname"><span class="pre">extractSignalOfLastCycle3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">signal</span></em>, <em class="sig-param"><span class="pre">sample_count_last_cycle</span></em>, <em class="sig-param"><span class="pre">simInit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.extractSignalOfLastCycle3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract 3D data from last converged power cycle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> – Full 3D timeseries simulation output.</p></li>
+<li><p><strong>sample_count_last_cycle</strong> – Simulation timeseries ‘sample_count_last_cycle’.</p></li>
+<li><p><strong>simInit</strong> – Simulation input structure ‘simInit’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> - Extracted power cycle 3D timeseries.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>Path_last_cycle = extractSignalOfLastCycle3D(pos_O, cycle_signal_counter, simInit );</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>May-2020</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Sebastian Rapp, Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="Src.Offline_visualisation.extractSignalOfLastCycle_nD">
+<span class="sig-name descname"><span class="pre">extractSignalOfLastCycle_nD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">signal</span></em>, <em class="sig-param"><span class="pre">sample_count_last_cycle</span></em>, <em class="sig-param"><span class="pre">simInit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.extractSignalOfLastCycle_nD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract n-D data from last converged power cycle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> – Full n-D timeseries simulation output,size= nx1xtimeseries</p></li>
+<li><p><strong>sample_count_last_cycle</strong> – Simulation timeseries ‘sample_count_last_cycle’</p></li>
+<li><p><strong>simInit</strong> – Simulation input structure ‘simInit’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> - Extracted power cycle n-D timeseries.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example: </dt><dd><p>TetherX_last_cycle = extractSignalOfLastCycle_nD(Tether_x, cycle_signal_counter, simInit );</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Other m-files required: none</div>
+<div class="line">Subfunctions: none</div>
+<div class="line">MAT-files required: none</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>January-2021</p>
+</dd>
+<dt class="field-even">Author</dt>
+<dd class="field-even"><p>Dylan Eijkelhof (<a class="reference external" href="mailto:d&#46;eijkelhof&#37;&#52;&#48;tudelft&#46;nl">d<span>&#46;</span>eijkelhof<span>&#64;</span>tudelft<span>&#46;</span>nl</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="readme.html" class="btn btn-neutral float-left" title="Readme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Delft University of Technology.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
