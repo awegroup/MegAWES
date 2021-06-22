@@ -72,12 +72,12 @@ A step by step series of examples that tell you how to get a development env run
 2. All input variables are set in:
 
 	```
-	Get_simulation_params.m
+	Src/Common/Get_simulation_params.m
 	```
 	where base variables are set in:
 	
 		```
-		initAllSimParams_DE2019.m
+		Src/Common/initAllSimParams_DE2019.m
 		```
 		
 		Following parameters are set:
