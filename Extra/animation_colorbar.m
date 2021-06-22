@@ -1,4 +1,4 @@
-% Copyright 2020 Delft University of Technology
+% Copyright 2021 Delft University of Technology
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -13,34 +13,31 @@
 % limitations under the License.
 
 function handleLine = animation_colorbar(Power,index_set,Tend,fps,t)
-%animation_colorbar - Animate instantaneous power on colorbar
+%Animate instantaneous power on colorbar
 %
-% Inputs:
-%    Path_last_cycle - Aircraft position
-%    index_set - Array containing the indices of the dataset that should be
+% :param Path_last_cycle: Aircraft position
+% :param index_set: Array containing the indices of the dataset that should be
 %                used
-%    Tend - Video length
-%    fps - Frames per second
-%    t - animation time at particular step, provided by fanimator()
+% :param Tend: Video length
+% :param fps: Frames per second
+% :param t: animation time at particular step, provided by fanimator()
 %
-% Outputs:
-%    handleTime - Textbox plot handle
+% :returns:
+%           - **handleLine** - Line moving over colorbar plot handle
 %
 % Example: 
-%    h_axes = axes('Parent',fig_pow,'position', cb.Position, 'ylim', ...
-%       cb.Limits, 'color', 'none', 'visible','off');
-%    fanimator(h_axes,@animation_colorbar,Power,Tend,...
-%       fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
+%       | h_axes = axes('Parent',fig_pow,'position', cb.Position, 'ylim', ...
+%       |    cb.Limits, 'color', 'none', 'visible','off');
+%       | fanimator(h_axes,@animation_colorbar,Power,Tend,...
+%       |    fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
 %
-% Other m-files required: None
-% Subfunctions (bottom): None
-% MAT-files required: None
+% | Other m-files required: None
+% | Subfunctions: None
+% | MAT-files required: None
 %
-% Author: Dylan Eijkelhof, M.Sc.
-% Delft University of Technology
-% email address: d.eijkelhof@tudelft.nl  
-% September 2020; Last revision: 17 September 2020
-
+% :Revision: 17-September-2020
+% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+ 
 %------------- BEGIN CODE --------------
 
 datapoint = index_set(round(((t/(1/fps))+1)));

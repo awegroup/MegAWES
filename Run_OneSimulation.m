@@ -1,4 +1,4 @@
-% Copyright 2020 Delft University of Technology
+% Copyright 2021 Delft University of Technology
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -13,73 +13,98 @@
 % limitations under the License. 
 
 %% Startup/Set cache folder
+addpath(['Src' filesep 'Common'])
 PreSim_startup();
 clearvars                           % Clear workspace
 close all                           % Close all figure windows
 clc                                 % Clear command window
 
 %% Set variables
-[base_windspeed, constr, ENVMT, Lbooth, ...
-    loiterStates, DE2019, simInit, T, winchParameter,params] = initAllSimParams_DE2019();
 
-%% Run simulation untill power convergence
-simout = sim('Pointmass_eom_v1_0.slx','ReturnWorkspaceOutputs','on'); %Matlab Simulink R2020a
+Kite_DOF = 6; % Kite degrees of freedom: 3 (point-mass) or 6 (rigid-body)
+% 3DoF: Forced to 22m/s
+% 6DoF: 8m/s  10m/s  14m/s  16m/s  18m/s  20m/s  22m/s  25m/s  28m/s  30m/s
+windspeed = 22; 
 
-% simout = sim('Pointmass_eom_v1_0_R2018B.slx','ReturnWorkspaceOutputs','on'); %Matlab Simulink R2018b
+[act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
+	loiterStates, params, simInit, T, winchParameter] = ...
+	Get_simulation_params(windspeed, Kite_DOF);
 
-%% Results
-if simout.power_conv_flag
-    P_mech_last_cycle = extractSignalOfLastCycle2(simout.P_mech, ...
-        simout.cycle_signal_counter, simInit);
-    Path_last_cycle = extractSignalOfLastCycle3D(simout.pos_O, ...
-        simout.cycle_signal_counter, simInit );
+%% Run simulation untill average pumping cycle power convergence
+if Kite_DOF==6
+    simOut = sim('Dyn_6DoF_v2_0_r2019b.slx',...
+        'SrcWorkspace', 'current'); %Matlab Simulink R2019b
+
+    % simOut = sim('Dyn_6DoF_v2_0_R2015B.slx',...
+    %     'SrcWorkspace', 'current'); %Matlab Simulink R2018b
+elseif Kite_DOF==3
+    simOut = sim('Dyn_PointMass_r2019b.slx',...
+        'SrcWorkspace', 'current'); %Matlab Simulink R2019b
+
+    % simOut = sim('Dyn_PointMass_R2015B.slx',...
+    %     'SrcWorkspace', 'current'); %Matlab Simulink R2018b
+else
+    error('Wong number of Degrees of Freedom entered')
+end
+
+disp(['Total elapsed walltime is: ',...
+    num2str(simOut.SimulationMetadata.TimingInfo.TotalElapsedWallTime),...
+    ' seconds'])
+
+%% Results visualisation, figures, video or animation object(matlab figure)
+if simOut.power_conv_flag
+    %% Power and flight path for last pumping cycle
+    P_mech_last_cycle = extractSignalOfLastCycle2(simOut.P_mech, ...
+        simOut.cycle_signal_counter, simInit);
+    Path_last_cycle = extractSignalOfLastCycle_nD(simOut.pos_O, ...
+        simOut.cycle_signal_counter, simInit );
     Average_power = mean(P_mech_last_cycle.Data);
-    Ft_last_cycle = extractSignalOfLastCycle2(simout.TetherForce, ...
-        simout.cycle_signal_counter, simInit);
-    if 0
+
+    if 1
         close all
-        Offline_visualisation_power(P_mech_last_cycle,Path_last_cycle); %#ok<*UNRCH>
-        LastcycleData_plot(Ft_last_cycle,'Tether force [N]','Cycle time [s]')
+        [fig_PO, fig_flightpower] = Offline_visualisation_power(...
+            P_mech_last_cycle,Path_last_cycle); %#ok<*UNRCH>
     end
-end
 
-%% Animate Flightpath
-
-if 0 %1 to activate
-    addpath(genpath('Extra'))
-    P_mech_last_cycle = extractSignalOfLastCycle2(simout.P_mech, ...
-        simout.cycle_signal_counter, simInit); %#ok<*UNRCH>
-    Path_last_cycle = extractSignalOfLastCycle3D(simout.pos_O, ...
-        simout.cycle_signal_counter, simInit );
-    EulAng_last_cycle = extractSignalOfLastCycle_nD(simout.Eul_ang, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_x = extractSignalOfLastCycle_nD(simout.Tether_x, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_y = extractSignalOfLastCycle_nD(simout.Tether_y, ...
-        simout.cycle_signal_counter, simInit );
-    Tether_last_cycle_z = extractSignalOfLastCycle_nD(simout.Tether_z, ...
-        simout.cycle_signal_counter, simInit );
+    %% Theoretical check: 
+    % Loyd peak power
+    % Costello et al. (2015) restrictive average power
     
-%     filename = 'FileName.mp4'; % Create animation video, write to file
-    filename = []; % Create figure to play animation
-    Duration = 60;
-    fps = 30;
-    filename = animate_flightpath_torque(filename,P_mech_last_cycle,...
-        Path_last_cycle,EulAng_last_cycle,Tether_last_cycle_x,...
-        Tether_last_cycle_y,Tether_last_cycle_z,ENVMT,Duration,fps);
-    if ~isempty(filename)
-        movefile(filename,['Extra' filesep filename])
+    if 1
+        try %#ok<TRYNC>
+            if ishandle(fig_PO)
+                fig_PO = Theoretical_Pcheck(simOut,constr,ENVMT,DE2019,simInit,T,params,fig_PO);
+            end
+        end
     end
-    rmpath(genpath('Extra'))
+
+    %% Animate Flightpath (Video)
+
+    if 0 %1 to activate
+        %%% !!!Create animation video, write to file
+%         filename = [num2str(Average_power/1e6,3) 'MW_6DOF_2.mp4']; 
+        
+        %%% !!!Create figure to only play the animation
+        filename = [];
+
+        Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019)
+    end
+    
+    % Wait for 'done' in the command window before trying to play the animation
+    % use the command: "playAnimation" (without quotes) to play the animation
+else
+    warning('Simulation did not converge')
 end
-% use the command: "playAnimation" (without quotes) to play the animation
 
 %% Update previous version
 %   If changes are made, update older version files for compatibility
 %   this includes all model reference files, if any.
+%   Older versions are never tested, thus compatibility is not guaranteed
 
-% addpath(genpath('Extra'))
-% exportToPreviousVersion('Pointmass_eom_v1_0.slx','R2018B')
-% movefile('Pointmass_eom_v1_0_R2018B.slx',...
-% ['Extra' filesep 'Pointmass_eom_v1_0_R2018B.slx'])
-% rmpath(genpath('Extra'))
+% simFileName = 'Dyn_PointMass_r2019b';
+% % simFileName = 'Dyn_6DoF_v2_0_r2019b';
+% simTargetVersion = 'R2015B';
+% exportToPreviousVersion([simFileName, '.slx'],simTargetVersion)
+% [filepath,~,~] = fileparts(which([simFileName, '.slx']));
+% movefile([simFileName(1:end-7), '_', simTargetVersion, '.slx'],...
+%          [filepath, filesep, simFileName(1:end-7), '_', simTargetVersion, '.slx'])

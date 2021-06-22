@@ -1,4 +1,4 @@
-% Copyright 2020 Delft University of Technology
+% Copyright 2021 Delft University of Technology
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -12,35 +12,33 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function p = animation_aircraft(Path_last_cycle,EulAng_last_cycle,windDir,index_set,Tend,fps,t)
-%animation_aircraft - Animate aircraft position
+function p = animation_aircraft(Path_last_cycle,EulAng_last_cycle,windDir,index_set,scale,Tend,fps,t)
+%Animate aircraft position
 %
-% Inputs:
-%    Path_last_cycle - Aircraft position
-%    EulAng_last_cycle - Aircraft orientation angles
-%    windDir - Wind direction
-%    index_set - Array containing the indices of the dataset that should be
+% :param Path_last_cycle: Aircraft position
+% :param EulAng_last_cycle: Aircraft orientation angles
+% :param windDir: Wind direction
+% :param index_set: Array containing the indices of the dataset that should be
 %                used
-%    Tend - Video length
-%    fps - Frames per second
-%    t - animation time at particular step, provided by fanimator()
+% :param scale: Aircraft illustration scale (actual scale/1.2886)
+% :param Tend: Video length
+% :param fps: Frames per second
+% :param t: animation time at particular step, provided by fanimator()
 %
-% Outputs:
-%    p - Aircraft plot handle
+% :returns:
+%           - **p** - Aircraft plot handle
 %
 % Example: 
-%    fanimator(axes1,@animation_aircraft,Path_last_cycle,EulAng_last_cycle,...
-%    ENVMT.windDirection_rad,Tend,fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
+%       | fanimator(axes1,@animation_aircraft,Path_last_cycle,EulAng_last_cycle,...
+%       |    ENVMT.windDirection_rad,Tend,fps,t,'AnimationRange',[0 Tend],'FrameRate',fps)
 %
-% Other m-files required: 
-% Subfunctions (bottom): drawVehicleBody2, rotate_PhiThetaPsi, translate_3D
-% STL-files required: plane_thesis_big.stl
+% | Other m-files required: None
+% | Subfunctions (bottom): drawVehicleBody2, rotate_PhiThetaPsi, translate_3D
+% | MAT-files required: plane_image.mat
 %
-% Author: Dylan Eijkelhof, M.Sc.
-% Delft University of Technology
-% email address: d.eijkelhof@tudelft.nl  
-% September 2020; Last revision: 17 September 2020
-
+% :Revision: 17-September-2020
+% :Author: Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
+ 
 %------------- BEGIN CODE --------------
 
 persistent Vert
@@ -68,10 +66,12 @@ psi = EulAng_last_cycle.Data(3,datapoint);
 
 if isempty(Vert)
     % Scale the aircraft (bigger/smaller)
-    scale = 6; 
-
-    % Import aircraft from stl file
-    [F, V, C] = rndread('plane_thesis_big.stl');
+%     scale = 6; 
+    % Import aircraft from mat file
+    Image_kite = load('plane_image.mat','F','Verti','C');
+    F = Image_kite.F;
+    V = Image_kite.Verti;
+    C = Image_kite.C;
     Vert = scale*V';
 end
 p = drawVehicleBody2(Vert,pn, pe, pd, phi, theta, psi, windDir, F, C);
@@ -85,6 +85,7 @@ function p = drawVehicleBody2(V, pn, pe, pd, phi, theta, psi, windDir, F, C)
     V = transformFromOtoW(windDir, V);
 
     col =  [ 57/255, 106/255, 177/255  ];
+%     col2 = '#00A6D5';
     p = patch('faces', F, 'vertices' ,V');
     set(p, 'facec', 'b');              % Set the face color (force it)
     set(p, 'FaceVertexCData', C);       % Set the color (from file)

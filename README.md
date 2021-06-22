@@ -1,49 +1,50 @@
-# MegAWES (v<sub>w</sub>=12 ms<sup>-1</sup>)
+# MegAWES (3DoF & 6DoF kite dynamics)
 
-[![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release&sort=semver)](https://github.com/awegroup/MegAWES/releases)
-[![Matlab](https://img.shields.io/badge/Matlab%20Simulink-2020A-brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
-[![Matlab](https://img.shields.io/badge/Matlab%20Simulink-2018B-yellow)](https://www.mathworks.com/products/simulink) <!--static-->
+[![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release)](https://github.com/awegroup/MegAWES/releases)
+[![Matlab19B](https://img.shields.io/static/v1?label=Matlab%20Simulink&message=2019B&color=brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
+<!--[![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/pip)-->
 
 ![Aircraft](DE2019_Aircraft.jpeg)
 <!--<img src="DE2019_Aircraft.jpeg" alt="alt text" width="600"/>-->
 
-MegAWES is a Matlab/Simulink model of an airborne wind energy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing more than a megawatt of electricity evaluated at 12 meter per second ground wind speed (6m height). The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
+MWAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
-* 3DOF point mass dynamic solver.
-* Aircraft controller with initiation phase and power generation flight controls.
+* Choice between 3DoF point-mass  and 6DoF rigid-body dynamic solver.
+* Aircraft controller for power generation flight controls and path tracking.
 * Set-force controlled dynamic winch (based on [[3]](#References)).
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 What things you need to run the software and how to install them.
 
-1. Install Matlab R2020A, Simulink R2020a and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
+1. Install Matlab/Simulink R2019B and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
 
 	```
-	Matlab (version R2020A, 9.8 tested on macOS 10.15.7)
-	Simulink (version R2020A, 10.1 tested on macOS 10.15.7)
-	Stateflow (version 10.2 tested on macOS 10.15.7)
+	Matlab (version R2019B, 9.7)
+	Simulink (version R2019B, 10.0)
+	Curve Fitting Toolbox (version 3.5.10, only needed for 6DoF)
+	Stateflow (version 10.1)
+	DSP System Toolbox (version 9.9, only needed for tether test cases)
 	```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-1. Install git LFS if you do not have it installed, detailed instructions can be found [here](https://github.com/git-lfs/git-lfs/wiki/Installation):
+2. Install Git and Git-lfs (for instructions how te get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
+3. After installation of git-lfs run the following command in a terminal (Unix, MacOS)/command(Windows) window:
 
 	```
 	git lfs install
 	```
 
-1. Get a copy of the latest `MegAWES` environment release:
+### Installing
+
+1. Do not forget to check if the [previously mentioned software](#Prerequisites) is installed.
+2. Get a copy of the latest `MegAWES` environment release:
 
 	```
 	git clone https://github.com/awegroup/MegAWES.git
@@ -51,40 +52,59 @@ A step by step series of examples that tell you how to get a development env run
 
 ## Deployment
 
+A step by step series of examples that tell you how to get a development env running, tested on macOS 11.2.3
+
 1. The following file allows you to run a full simulation until power cycle convergence of the current aircraft.
 
 	```
 	Run_OneSimulation.m
 	```
+	
+	Two important parameters are set here:
+	
+		```
+		Kite_DOF: Kite degrees of freedom, 3 (point-mass) or 6 (rigid-body)
+		windspeed: Maximum wind speed of the wind shear profile, occurs at 250m altitude and above,
+			3DoF: Always forced to 22m/s
+			6DoF: 8m/s, 10m/s, 14m/s, 16m/s, 18m/s, 20m/s, 22m/s, 25m/s, 28m/s, 30m/s
+		```
 
 2. All input variables are set in:
 
 	```
-	initAllSimParams_DE2019.m
+	Get_simulation_params.m
 	```
-	Following parameters are set:
-	1. Aircraft is loaded from the `DE2019_params.mat` file.
-	2. Environment parameters
-	3. Steady base windspeed, 6m altitude (no turbulence is included at this stage).
-	4. Simulation initialisation parameters
-	5. Simulation constraints
-	6. Tether characteristics
-	7. Winch characteristics
-	8. Flight path shape
-	9. Tether force set-point (tracking)
-	10. Controller gains
-	11. Initialisation phase, loiter
+	where base variables are set in:
+	
+		```
+		initAllSimParams_DE2019.m
+		```
+		
+		Following parameters are set:
+		1. Aircraft is loaded from the `DE2019_params.mat` file.
+		2. Environment parameters
+		3. Steady base windspeed, 6m altitude (no turbulence is included at this stage).
+		4. Simulation initialisation parameters
+		5. Simulation constraints
+		6. Tether characteristics
+		7. Winch characteristics
+		8. Flight path shape
+		9. Tether force set-point (tracking)
+		10. Controller gains
+		11. Initialisation phase (loiter)
 
-3. In the simulink model, the output parameters are defined in block:
+3. In the simulink models for both 3 and 6 DoF, the output parameters are defined in block:
 
 	```
 	RequirementModelsAndLogging
 	```
 
-An example of the visualisation of the output is given in the main file `Run_OneSimulation.m` at the bottom.
-There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production. 
+	An example of the visualisation of the output is given in the main file `Run_OneSimulation.m` at the bottom.
+	There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production. 
+	
+	Also an example is provided on how to visualise the converged power pumping cycle as an animation.
 
-Also an example is provided on how to visualise the converged power pumping cycle as an animation.
+4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. A more detailed description of the files and folders is given in [File structure & Description](#file-structure-and-descriptions). Rapp [4] gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
 ## Built With
 
@@ -97,15 +117,15 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags). 
+For the versions available, see the [tags on this repository](https://github.com/awegroup/MWAWES/tags). 
 
 ## Authors
 
-* **Dylan Eijkelhof** - *Initial work current system, multi-MW aircraft* - [GitHub](https://github.com/DylanEij)
+* **Dylan Eijkelhof** - *Initial work current system design, multi-MW aircraft* - [GitHub](https://github.com/DylanEij)
 * **Urban Fasel** - *Initial framework set-up* 
 * **Sebastian Rapp** - *Flight controller design* - [GitHub](https://github.com/sebrap)
 
-See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/awegroup/MWAWES/graphs/contributors) who participated in this project.
 
 ## License
 
@@ -117,6 +137,12 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 [2] Eijkelhof, Dylan, et al. "Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System." Journal of Physics: Conference Series. Vol. 1618. No. 3. IOP Publishing, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
 
 [3] Fechner, Uwe, et al. "Dynamic model of a pumping kite power system." Renewable Energy 83 (2015): 705-716. [doi:10.1016/j.renene.2015.04.028](http://dx.doi.org/10.1016/j.renene.2015.04.028)
+
+[4] Rapp, S. "Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems." PhD Thesis. Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
+
+[5] M. L. Loyd, Crosswind kite power (for large-scale wind power production),Journal of Energy 4 (1980) 106–111. [doi:10.2514/3.48021](http://dx.doi.org/10.2514/3.48021)
+
+[6] S. Costello, C. Costello, G. Franc ̧ois, D. Bonvin, Analysis of the maximumefficiency of kite-power systems,  Journal of renewable and sustainableenergy 7 (2015) 053108. [doi:10.1063/1.4931111](http://dx.doi.org/10.1063/1.4931111)
 
 ## Acknowledgments
 

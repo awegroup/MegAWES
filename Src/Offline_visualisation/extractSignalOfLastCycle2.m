@@ -1,4 +1,4 @@
-% Copyright 2020 Delft University of Technology
+% Copyright 2021 Delft University of Technology
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -13,31 +13,24 @@
 % limitations under the License.
 
 function y = extractSignalOfLastCycle2( signal, sample_count_last_cycle,  simInit )
-%extractSignalOfLastCycle2 - Extract 1D data from last converged power cycle.
+%Extract 1D data from last converged power cycle.
 %
-% Syntax:  extractSignalOfLastCycle2( signal, sample_count_last_cycle,  simInit )
+% :param signal: Full 1D timeseries simulation output.
+% :param sample_count_last_cycle: Simulation timeseries 'sample_count_last_cycle'.
+% :param simInit: Simulation input structure 'simInit'.
 %
-% Inputs:
-%    signal                     - Full 1D timeseries simulation output
-%    sample_count_last_cycle    - Simulation timeseries 'sample_count_last_cycle'
-%    simInit                    - Simulation input structure 'simInit'
-%
-% Outputs:
-%    y - Extracted power cycle timeseries
+% :returns:
+%           - **y** - Extracted power cycle 1D timeseries.
 %
 % Example: 
 %    P_mech_last_cycle = extractSignalOfLastCycle2(P_mech, cycle_signal_counter, simInit);
 %
-% Other m-files required: none
-% Subfunctions: none
-% MAT-files required: none
+% | Other m-files required: none
+% | Subfunctions: none
+% | MAT-files required: none
 %
-% Author: Sebastian Rapp, Phd.
-% Modified:
-% Dylan Eijkelhof, M.Sc.
-% Delft University of Technology
-% email address: d.eijkelhof@tudelft.nl  
-% December 2019
+% :Revision: December-2019
+% :Authors: Sebastian Rapp, Dylan Eijkelhof (d.eijkelhof@tudelft.nl)
 
 %------------- BEGIN CODE --------------
 time_window_last_cylce = sample_count_last_cycle.Data(end) * simInit.Ts_power_conv_check;
