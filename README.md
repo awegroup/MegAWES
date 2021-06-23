@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release)](https://github.com/awegroup/MegAWES/releases)
 [![Matlab19B](https://img.shields.io/static/v1?label=Matlab%20Simulink&message=2019B&color=brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
-<!--[![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/pip)-->
+[![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/megawes)
 
 ![Aircraft](DE2019_Aircraft.jpeg)
 <!--<img src="DE2019_Aircraft.jpeg" alt="alt text" width="600"/>-->
