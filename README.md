@@ -144,7 +144,7 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 
 [5] M. L. Loyd, Crosswind kite power (for large-scale wind power production),Journal of Energy 4 (1980) 106–111. [doi:10.2514/3.48021](http://dx.doi.org/10.2514/3.48021)
 
-[6] S. Costello, C. Costello, G. Franc ̧ois, D. Bonvin, Analysis of the maximumefficiency of kite-power systems,  Journal of renewable and sustainableenergy 7 (2015) 053108. [doi:10.1063/1.4931111](http://dx.doi.org/10.1063/1.4931111)
+[6] S. Costello, C. Costello, G. François, D. Bonvin, Analysis of the maximumefficiency of kite-power systems,  Journal of renewable and sustainableenergy 7 (2015) 053108. [doi:10.1063/1.4931111](http://dx.doi.org/10.1063/1.4931111)
 
 ## Acknowledgments
 
