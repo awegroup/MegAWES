@@ -8,7 +8,7 @@
 ![Aircraft](DE2019_Aircraft.jpeg)
 <!--<img src="DE2019_Aircraft.jpeg" alt="alt text" width="600"/>-->
 
-MWAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
+MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
@@ -119,7 +119,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/awegroup/MWAWES/tags). 
+For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags). 
 
 ## Authors
 
@@ -127,31 +127,31 @@ For the versions available, see the [tags on this repository](https://github.com
 * **Urban Fasel** - *Initial framework set-up* 
 * **Sebastian Rapp** - *Flight controller design* - [GitHub](https://github.com/sebrap)
 
-See also the list of [contributors](https://github.com/awegroup/MWAWES/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the Apache License - see the [LICENSE](LICENSE.md) file for details
 
 ## References
-[1] Eijkelhof, Dylan. "Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System." (2019) Delft University of Technoly and Technical University of Denmark, MSc thesis. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
+[1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
 
-[2] Eijkelhof, Dylan, et al. "Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System." Journal of Physics: Conference Series. Vol. 1618. No. 3. IOP Publishing, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
+[2] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
 
-[3] Fechner, Uwe, et al. "Dynamic model of a pumping kite power system." Renewable Energy 83 (2015): 705-716. [doi:10.1016/j.renene.2015.04.028](http://dx.doi.org/10.1016/j.renene.2015.04.028)
+[3] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
 
-[4] Rapp, S. "Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems." PhD Thesis. Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
+[4] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
 
-[5] M. L. Loyd, Crosswind kite power (for large-scale wind power production),Journal of Energy 4 (1980) 106–111. [doi:10.2514/3.48021](http://dx.doi.org/10.2514/3.48021)
+[5] M. L. Loyd: Crosswind kite power (for large-scale wind power production). Journal of Energy, Vol. 4, pp. 106–111, 1980. [doi:10.2514/3.48021](http://doi.org/10.2514/3.48021)
 
-[6] S. Costello, C. Costello, G. François, D. Bonvin, Analysis of the maximumefficiency of kite-power systems,  Journal of renewable and sustainableenergy 7 (2015) 053108. [doi:10.1063/1.4931111](http://dx.doi.org/10.1063/1.4931111)
+[6] S. Costello, C. Costello, G. François, D. Bonvin: Analysis of the maximumefficiency of kite-power systems. Journal of renewable and sustainableenergy, Vol 7, 053108, 2015. [doi:10.1063/1.4931111](http://doi.org/10.1063/1.4931111)
 
 ## Acknowledgments
 
 * Outstanding guidance of Roland Schmehl (TU Delft) and Mac Gaunaa (DTU wind energy).
 * This project is financially supported by the Unmanned Valley Valkenburg project of the European Regional Development Fund.
 * A special thank you to the following people whos work helped with the design of the DE2019 aircraft:
-	* Dr. Dominic Keidel
+	* Dominic Keidel
 	* Cla Mattia Galliard
 	* Lorenz Affentranger
 	* Gian Joerimann
