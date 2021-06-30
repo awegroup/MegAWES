@@ -108,6 +108,10 @@ A step by step series of examples that tell you how to get a development env run
 
 4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. A more detailed description of the files and folders is given in [File structure & Description](#file-structure-and-descriptions). Rapp [4] gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
+## Documentation
+
+A detailed documentation of the simulation framework can be accessed on [readthedocs](https://readthedocs.org/projects/megawes).
+
 ## Built With
 
 * [Matlab](https://www.mathworks.com/products/matlab) - The program language used
