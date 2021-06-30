@@ -110,7 +110,7 @@ A step by step series of examples that tell you how to get a development env run
 
 ## Documentation
 
-A detailed documentation of the simulation framework can be accessed on [readthedocs](https://readthedocs.org/projects/megawes).
+A detailed documentation of the simulation framework can be accessed on [readthedocs](https://megawes.readthedocs.io/en/latest/).
 
 ## Built With
 
