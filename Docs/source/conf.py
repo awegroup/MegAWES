@@ -47,7 +47,7 @@ matlab_src_dir = os.path.abspath('../..')
 primary_domain = 'mat'
 autodoc_member_order = 'alphabetical'
 add_module_names = False
-m2r_parse_relative_links = True
+m2r_parse_relative_links = False
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

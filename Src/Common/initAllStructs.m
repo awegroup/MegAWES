@@ -16,7 +16,7 @@ function simIn =    initAllStructs(model, base_windspeed, constr, ...
 % :param act: Actuator, aileron elevator and rudder data.
 %
 % :returns:
-%           - **simIn** - Actuator, aileron elevator and rudder data.
+%           - **simIn** - Simulation input variable containing all parameters needed by simulink.
 %
 % Example:
 %       | simIn = initAllStructs('Dyn_6DoF_v2_0_r2019b', base_windspeed, constr, ... 

@@ -6,12 +6,15 @@ Functions and Simulink models
 
 Functions
 **********
-
+Pre-simulation
+---------------
 .. automodule:: Src.Common
   :members:
   :show-inheritance:
   :undoc-members:
 
+Post-simulation & Extra's
+--------------------------
 .. automodule:: Extra
   :members:
   :show-inheritance:
@@ -19,6 +22,8 @@ Functions
 
 Main simulink model
 ********************
+The following image shows the root level of the simulink model. This shows how the different modules work together.
+This level is similar for both 3DoF and 6DoF simulations.
 
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
@@ -32,6 +37,10 @@ Simulink parts
 
 Environment
 ------------
+The following image shows the environment subsystem of the simulink model.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+It is used to determine the wind speed at each tether particle and at the kite.
+
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
   :addpath: ../../Common/Environment;../../Common/FlightController;
@@ -48,9 +57,20 @@ Environment
 
 Flight controller
 ------------------
+The following image shows the root level of the flight controller in the case of a 3DoF simulation.
 
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
+  :addpath: ../../Common/Environment;../../Common/FlightController;
+      ../../Common/Flightpaths;../../Common/Flightpaths/boothLem;
+      ../../Common/GroundStation;../../Common/Tether;../../Common/Visualisation;
+      ../..;../../..
+  :subsystem: AirborneSystem/FlightControlSystem
+
+The following image shows the root level of the flight controller in the case of a 6DoF simulation.
+
+.. simulink-diagram:: Dyn_6DoF_v2_0_r2019b
+  :dir: ../../Src/6DoF/Simulink
   :addpath: ../../Common/Environment;../../Common/FlightController;
       ../../Common/Flightpaths;../../Common/Flightpaths/boothLem;
       ../../Common/GroundStation;../../Common/Tether;../../Common/Visualisation;
@@ -65,6 +85,7 @@ Flight controller
 Flightpaths
 ^^^^^^^^^^^^
 These functions are called by the PathFollowingController.
+Not all required functions are shown here. Some functions are only documented inside simulink.
 
 .. .. simulink-diagram:: Dyn_PointMass_r2019b
 ..     :dir: ../../Src/3DoF/Simulink
@@ -86,6 +107,10 @@ These functions are called by the PathFollowingController.
 
 Ground station
 ---------------
+The following image shows the ground station subsystem of the simulink model.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+Unfortunately, no image can be included of the state machine, however this can be viewed inside simulink.
+Basically the state machine determines in what flight mode the kite needs to be and what the tether force set point is corresponding to that mode.
 
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
@@ -104,6 +129,9 @@ Tether dynamics
 ----------------
 
 The functions are described inside simulink.
+The following image shows the what the inputs and outputs are of the tether module.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+
 
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
@@ -120,6 +148,9 @@ The functions are described inside simulink.
 
 Offline visualisation
 ----------------------
+These functions are used to visualise the simulation output.
+They can be called by the user for each parameter being logged by simulink.
+These is done outside of the simulation itself, hence the word offline.
 
 .. automodule:: Src.Offline_visualisation
   :members:

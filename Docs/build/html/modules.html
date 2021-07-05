@@ -92,7 +92,11 @@
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#megawes-3dof-6dof-kite-dynamics">MegAWES (3DoF &amp; 6DoF kite dynamics)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Functions and Simulink models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-Src.Common">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-Src.Common">Pre-simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Extra">Post-simulation &amp; Extra’s</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#main-simulink-model">Main simulink model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulink-parts">Simulink parts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
@@ -102,7 +106,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ground-station">Ground station</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tether-dynamics">Tether dynamics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-Src.Offline_visualisation">Offline visualisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline-visualisation">Offline visualisation</a></li>
 </ul>
 </li>
 </ul>
@@ -178,8 +182,10 @@
 <h1>Functions and Simulink models<a class="headerlink" href="#functions-and-simulink-models" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-Src.Common">
-<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-Src.Common" title="Permalink to this headline">¶</a></h2>
+<span id="pre-simulation"></span><h3>Pre-simulation<a class="headerlink" href="#module-Src.Common" title="Permalink to this headline">¶</a></h3>
 <dl class="mat function">
 <dt class="sig sig-object mat" id="Src.Common.Get_simulation_params">
 <span class="sig-name descname"><span class="pre">Get_simulation_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">windspeed</span></em>, <em class="sig-param"><span class="pre">Kite_DOF</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Get_simulation_params" title="Permalink to this definition">¶</a></dt>
@@ -333,7 +339,7 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>simIn</strong> - Actuator, aileron elevator and rudder data.</p></li>
+<li><p><strong>simIn</strong> - Simulation input variable containing all parameters needed by simulink.</p></li>
 </ul>
 </p>
 </dd>
@@ -362,7 +368,10 @@
 </dl>
 </dd></dl>
 
-<span class="target" id="module-Extra"></span><dl class="mat function">
+</div>
+<div class="section" id="module-Extra">
+<span id="post-simulation-extra-s"></span><h3>Post-simulation &amp; Extra’s<a class="headerlink" href="#module-Extra" title="Permalink to this headline">¶</a></h3>
+<dl class="mat function">
 <dt class="sig sig-object mat" id="Extra.Video_from_simOut">
 <span class="sig-name descname"><span class="pre">Video_from_simOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">simOut</span></em>, <em class="sig-param"><span class="pre">simInit</span></em>, <em class="sig-param"><span class="pre">ENVMT</span></em>, <em class="sig-param"><span class="pre">DE2019</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Extra.Video_from_simOut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an animation object or video from sim output</p>
@@ -702,8 +711,11 @@ same version.</p>
 </dd></dl>
 
 </div>
+</div>
 <div class="section" id="main-simulink-model">
 <h2>Main simulink model<a class="headerlink" href="#main-simulink-model" title="Permalink to this headline">¶</a></h2>
+<p>The following image shows the root level of the simulink model. This shows how the different modules work together.
+This level is similar for both 3DoF and 6DoF simulations.</p>
 <div class="figure align-default">
 <img alt="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" src="_images/simulink-diagram-984d4148277a1623c210155453486090189b4ded.png" />
 </div>
@@ -712,18 +724,27 @@ same version.</p>
 <h2>Simulink parts<a class="headerlink" href="#simulink-parts" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="environment">
 <h3>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<p>The following image shows the environment subsystem of the simulink model.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+It is used to determine the wind speed at each tether particle and at the kite.</p>
 <div class="figure align-default">
 <img alt="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" src="_images/simulink-diagram-9a5ab7a0f28303d99eaa823d293e428f8f5a893e.png" />
 </div>
 <span class="target" id="module-Src.Common.Environment"></span></div>
 <div class="section" id="flight-controller">
 <h3>Flight controller<a class="headerlink" href="#flight-controller" title="Permalink to this headline">¶</a></h3>
+<p>The following image shows the root level of the flight controller in the case of a 3DoF simulation.</p>
 <div class="figure align-default">
 <img alt="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" src="_images/simulink-diagram-b6b311a45663d0eff0e2987e60c03ea3f35be575.png" />
 </div>
+<p>The following image shows the root level of the flight controller in the case of a 6DoF simulation.</p>
+<div class="figure align-default">
+<img alt="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" src="_images/simulink-diagram-596c9c4fa356fae5ebd83a3786be0f213e383144.png" />
+</div>
 <span class="target" id="module-Src.Common.FlightController"></span><div class="section" id="flightpaths">
 <h4>Flightpaths<a class="headerlink" href="#flightpaths" title="Permalink to this headline">¶</a></h4>
-<p>These functions are called by the PathFollowingController.</p>
+<p>These functions are called by the PathFollowingController.
+Not all required functions are shown here. Some functions are only documented inside simulink.</p>
 <span class="target" id="module-Src.Common.Flightpaths"></span><dl class="mat function">
 <dt class="sig sig-object mat" id="Src.Common.Flightpaths.calcCourse2ClosestPoint">
 <span class="sig-name descname"><span class="pre">calcCourse2ClosestPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">p_VT_W</span></em>, <em class="sig-param"><span class="pre">p_kite_W</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Common.Flightpaths.calcCourse2ClosestPoint" title="Permalink to this definition">¶</a></dt>
@@ -1458,20 +1479,29 @@ add a predictive part to smooth highly curved paths.</p>
 </div>
 <div class="section" id="ground-station">
 <h3>Ground station<a class="headerlink" href="#ground-station" title="Permalink to this headline">¶</a></h3>
+<p>The following image shows the ground station subsystem of the simulink model.
+This subsystem is similar for both 3DoF and 6DoF simulations.
+Unfortunately, no image can be included of the state machine, however this can be viewed inside simulink.
+Basically the state machine determines in what flight mode the kite needs to be and what the tether force set point is corresponding to that mode.</p>
 <div class="figure align-default">
 <img alt="_images/simulink-diagram-ad6ca5834357ed4e703a18da6fa44b52809c8028.png" src="_images/simulink-diagram-ad6ca5834357ed4e703a18da6fa44b52809c8028.png" />
 </div>
 <span class="target" id="module-Src.Common.GroundStation"></span></div>
 <div class="section" id="tether-dynamics">
 <h3>Tether dynamics<a class="headerlink" href="#tether-dynamics" title="Permalink to this headline">¶</a></h3>
-<p>The functions are described inside simulink.</p>
+<p>The functions are described inside simulink.
+The following image shows the what the inputs and outputs are of the tether module.
+This subsystem is similar for both 3DoF and 6DoF simulations.</p>
 <div class="figure align-default">
 <img alt="_images/simulink-diagram-91c89f8b3d3ada69afe2f9ac3185366f96e15a32.png" src="_images/simulink-diagram-91c89f8b3d3ada69afe2f9ac3185366f96e15a32.png" />
 </div>
 <span class="target" id="module-Src.Common.Tether"></span></div>
-<div class="section" id="module-Src.Offline_visualisation">
-<span id="offline-visualisation"></span><h3>Offline visualisation<a class="headerlink" href="#module-Src.Offline_visualisation" title="Permalink to this headline">¶</a></h3>
-<dl class="mat function">
+<div class="section" id="offline-visualisation">
+<h3>Offline visualisation<a class="headerlink" href="#offline-visualisation" title="Permalink to this headline">¶</a></h3>
+<p>These functions are used to visualise the simulation output.
+They can be called by the user for each parameter being logged by simulink.
+These is done outside of the simulation itself, hence the word offline.</p>
+<span class="target" id="module-Src.Offline_visualisation"></span><dl class="mat function">
 <dt class="sig sig-object mat" id="Src.Offline_visualisation.Offline_visualisation_power">
 <span class="sig-name descname"><span class="pre">Offline_visualisation_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">P_mech_last_cycle</span></em>, <em class="sig-param"><span class="pre">Path_last_cycle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Src.Offline_visualisation.Offline_visualisation_power" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot power curve and flight path</p>
