@@ -13,7 +13,7 @@ MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based 
 * Aircraft controller for power generation flight controls and path tracking.
 * Set-force controlled dynamic winch (based on [[3]](#References)).
 
-![](./Docs/source/DE2019_Aircraft.jpeg)
+![](DE2019_Aircraft.jpeg)
 
 ## Getting Started
 

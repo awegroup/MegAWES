@@ -58,6 +58,7 @@ It is used to determine the wind speed at each tether particle and at the kite.
 Flight controller
 ------------------
 The following image shows the root level of the flight controller in the case of a 3DoF simulation.
+
 .. simulink-diagram:: Dyn_PointMass_r2019b
   :dir: ../../Src/3DoF/Simulink
   :addpath: ../../Common/Environment;../../Common/FlightController;
@@ -67,6 +68,7 @@ The following image shows the root level of the flight controller in the case of
   :subsystem: AirborneSystem/FlightControlSystem
 
 The following image shows the root level of the flight controller in the case of a 6DoF simulation.
+
 .. simulink-diagram:: Dyn_6DoF_v2_0_r2019b
   :dir: ../../Src/6DoF/Simulink
   :addpath: ../../Common/Environment;../../Common/FlightController;
