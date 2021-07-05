@@ -104,7 +104,7 @@ A step by step series of examples that tell you how to get a development env run
 	
 	Also an example is provided on how to visualise the converged power pumping cycle as an animation.
 
-4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. A more detailed description of the files and folders is given in [File structure & Description](#file-structure-and-descriptions). Rapp [4] gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
+4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. Rapp [[4]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
 ## Documentation
 
@@ -143,10 +143,6 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 [3] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
 
 [4] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
-
-[5] M. L. Loyd: Crosswind kite power (for large-scale wind power production). Journal of Energy, Vol. 4, pp. 106–111, 1980. [doi:10.2514/3.48021](http://doi.org/10.2514/3.48021)
-
-[6] S. Costello, C. Costello, G. François, D. Bonvin: Analysis of the maximumefficiency of kite-power systems. Journal of renewable and sustainableenergy, Vol 7, 053108, 2015. [doi:10.1063/1.4931111](http://doi.org/10.1063/1.4931111)
 
 ## Acknowledgments
 
