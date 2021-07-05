@@ -5,8 +5,6 @@
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
 [![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/megawes)
 
-![](./Docs/source/DE2019_Aircraft.jpeg)
-
 MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
@@ -15,6 +13,7 @@ MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based 
 * Aircraft controller for power generation flight controls and path tracking.
 * Set-force controlled dynamic winch (based on [[3]](#References)).
 
+![](./Docs/source/DE2019_Aircraft.jpeg)
 
 ## Getting Started
 
