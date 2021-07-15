@@ -12,7 +12,7 @@
 % See the License for the specific language governing permissions and
 % limitations under the License.
 
-function Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019)
+function Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019,duration)
 %Create an animation object or video from sim output
 %
 % :param filename: Name of the video file, including extension
@@ -21,14 +21,15 @@ function Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019)
 % :param simInit: Simulation initialisation parameters
 % :param ENVMT: Environmental parameters
 % :param DE2019: Aircraft parameters
+% :param duration: Length of video in seconds, it influences the number of datapoints to include
 %
 % :returns:
 %           - **noVar** - Video file
 %
 % Example: 
-%       | Video_from_simOut('test.mp4', simOut,simInit,ENVMT,DE2019)
+%       | Video_from_simOut('test.mp4', simOut,simInit,ENVMT,DE2019,30)
 %       | 
-%       | Video_from_simOut([], simOut,simInit,ENVMT,DE2019)
+%       | Video_from_simOut([], simOut,simInit,ENVMT,DE2019,30)
 %
 % | Other m-files required: animate_flightpath.m, extractSignalOfLastCycle2.m, extractSignalOfLastCycle3D.m, extractSignalOfLastCycle_nD.m
 % | Subfunctions: None
@@ -53,7 +54,6 @@ function Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019)
         Tether_last_cycle_z = extractSignalOfLastCycle_nD(simOut.Tether_z, ...
             simOut.cycle_signal_counter, simInit );
 
-        duration = 15; %seconds
         fps = 30; %frames per second
         
         filename = animate_flightpath(filename,P_mech_last_cycle,...

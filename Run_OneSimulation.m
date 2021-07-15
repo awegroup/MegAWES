@@ -12,6 +12,15 @@
 % See the License for the specific language governing permissions and
 % limitations under the License. 
 
+%% Instructions
+
+% This code can be run to run a simulation at one wind speed.
+% Startup/Set cache folder section clears the workspace and set the correct
+% cache folder.
+% Set variables section is used to choose between 3 or 6 DoF kite dynamics
+% Also the wind speed is can be chosen accordingly.
+% After this there is not much that should be changed. One can decide to turn
+% certain plots on and of by setting the corresponding if statement to 1 or 0.
 %% Startup/Set cache folder
 addpath(['Src' filesep 'Common'])
 PreSim_startup();
@@ -38,15 +47,18 @@ if Kite_DOF==6
     % simOut = sim('Dyn_6DoF_v2_0_R2015B.slx',...
     %     'SrcWorkspace', 'current'); %Matlab Simulink R2018b
 elseif Kite_DOF==3
+    %Matlab Simulink R2019b
     simOut = sim('Dyn_PointMass_r2019b.slx',...
-        'SrcWorkspace', 'current'); %Matlab Simulink R2019b
-
+        'SrcWorkspace', 'current'); 
+    
+    %Matlab Simulink R2018b
     % simOut = sim('Dyn_PointMass_R2015B.slx',...
-    %     'SrcWorkspace', 'current'); %Matlab Simulink R2018b
+    %     'SrcWorkspace', 'current'); 
 else
-    error('Wong number of Degrees of Freedom entered')
+    error('Wrong number of Degrees of Freedom entered')
 end
 
+% Show elapsed time by running simulink.
 disp(['Total elapsed walltime is: ',...
     num2str(simOut.SimulationMetadata.TimingInfo.TotalElapsedWallTime),...
     ' seconds'])
@@ -87,24 +99,12 @@ if simOut.power_conv_flag
         %%% !!!Create figure to only play the animation
         filename = [];
 
-        Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019)
+        duration = 30; %seconds
+        Video_from_simOut(filename, simOut,simInit,ENVMT,DE2019,duration)
     end
     
     % Wait for 'done' in the command window before trying to play the animation
-    % use the command: "playAnimation" (without quotes) to play the animation
+    % Then use the command: "playAnimation" (without quotes) to play the animation
 else
     warning('Simulation did not converge')
 end
-
-%% Update previous version
-%   If changes are made, update older version files for compatibility
-%   this includes all model reference files, if any.
-%   Older versions are never tested, thus compatibility is not guaranteed
-
-% simFileName = 'Dyn_PointMass_r2019b';
-% % simFileName = 'Dyn_6DoF_v2_0_r2019b';
-% simTargetVersion = 'R2015B';
-% exportToPreviousVersion([simFileName, '.slx'],simTargetVersion)
-% [filepath,~,~] = fileparts(which([simFileName, '.slx']));
-% movefile([simFileName(1:end-7), '_', simTargetVersion, '.slx'],...
-%          [filepath, filesep, simFileName(1:end-7), '_', simTargetVersion, '.slx'])
