@@ -40,22 +40,31 @@ windspeed = 22;
 	Get_simulation_params(windspeed, Kite_DOF);
 
 %% Run simulation untill average pumping cycle power convergence
-if Kite_DOF==6
-    simOut = sim('Dyn_6DoF_v2_0_r2019b.slx',...
-        'SrcWorkspace', 'current'); %Matlab Simulink R2019b
-
-    % simOut = sim('Dyn_6DoF_v2_0_R2015B.slx',...
-    %     'SrcWorkspace', 'current'); %Matlab Simulink R2018b
-elseif Kite_DOF==3
-    %Matlab Simulink R2019b
-    simOut = sim('Dyn_PointMass_r2019b.slx',...
-        'SrcWorkspace', 'current'); 
+matlab_version = version('-release');
+if (strcmp(matlab_version,'2019b') || str2double(matlab_version(1:end-1))>2019)
     
-    %Matlab Simulink R2018b
-    % simOut = sim('Dyn_PointMass_R2015B.slx',...
-    %     'SrcWorkspace', 'current'); 
+    %Matlab Simulink R2019b version
+    if Kite_DOF==6
+        simOut = sim('Dyn_6DoF_v2_0_r2019b.slx','SrcWorkspace', 'current');
+    elseif Kite_DOF==3
+        simOut = sim('Dyn_PointMass_r2019b.slx','SrcWorkspace', 'current');
+    else
+        error('Wrong number of Degrees of Freedom entered')
+    end
+    
+elseif (strcmp(matlab_version,'2015b') || str2double(matlab_version(1:end-1))>2015)
+    
+    %Matlab Simulink R2015b version
+    if Kite_DOF==6
+        simOut = sim('Dyn_6DoF_v2_0_R2015B.slx','SrcWorkspace', 'current');
+    elseif Kite_DOF==3
+        simOut = sim('Dyn_PointMass_R2015B.slx','SrcWorkspace', 'current');
+    else
+        error('Wrong number of Degrees of Freedom entered')
+    end 
+    
 else
-    error('Wrong number of Degrees of Freedom entered')
+    error('Installed Matlab Simulink version too old for provided files')
 end
 
 % Show elapsed time by running simulink.
