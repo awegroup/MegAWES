@@ -5,13 +5,13 @@
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
 [![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/megawes)
 
-MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
+MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. Additional info can be foud in the publication in Journal of Renewable Energy [[1]](#References). The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[2,3]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
 * Choice between 3DoF point-mass  and 6DoF rigid-body dynamic solver.
 * Aircraft controller for power generation flight controls and path tracking.
-* Set-force controlled dynamic winch (based on [[3]](#References)).
+* Set-force controlled dynamic winch (based on [[4]](#References)).
 
 ![](DE2019_Aircraft.jpeg)
 
@@ -104,7 +104,7 @@ A step by step series of examples that tell you how to get a development env run
 	
 	Also an example is provided on how to visualise the converged power pumping cycle as an animation.
 
-4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. Rapp [[4]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
+4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. Rapp [[5]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
 ## Documentation
 
@@ -136,13 +136,15 @@ See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/c
 This project is licensed under the Apache License - see the [LICENSE](LICENSE.md) file for details
 
 ## References
-[1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
+[1] D. Eijkelhof, R. Schmehl: Six-degrees-of-freedom simulation model for future multi-megawatt airborne wind energy systems. Renewable Energy, Vol. 196, pp. 137-150, 2022. [doi:10.1016/j.renene.2022.06.094](https://doi.org/10.1016/j.renene.2022.06.094)
 
-[2] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
+[2] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
 
-[3] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
+[3] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
 
-[4] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
+[4] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
+
+[5] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
 
 ## Acknowledgments
 
