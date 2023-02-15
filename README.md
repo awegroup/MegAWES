@@ -33,7 +33,7 @@ What things you need to run the software and how to install them.
 	DSP System Toolbox (version 9.9, only needed for tether test cases)
 	```
 	
-2. Install Git and Git-lfs (for instructions how te get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
+2. Install Git and Git-lfs (for instructions how to get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
 3. After installation of git-lfs run the following command in a terminal (Unix, MacOS)/command(Windows) window:
 
 	```
