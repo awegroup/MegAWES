@@ -138,7 +138,7 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 ## References
 [1] D. Eijkelhof, R. Schmehl: Six-degrees-of-freedom simulation model for future multi-megawatt airborne wind energy systems. Renewable Energy, Vol. 196, pp. 137-150, 2022. [doi:10.1016/j.renene.2022.06.094](https://doi.org/10.1016/j.renene.2022.06.094)
 
-[2] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
+[2] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technology and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
 
 [3] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
 
