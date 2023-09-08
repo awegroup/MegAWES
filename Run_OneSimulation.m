@@ -30,7 +30,7 @@ clc                                 % Clear command window
 
 %% Set variables
 
-Kite_DOF = 6; % Kite degrees of freedom: 3 (point-mass) or 6 (rigid-body)
+Kite_DOF = 3; % Kite degrees of freedom: 3 (point-mass) or 6 (rigid-body)
 % 3DoF: Forced to 22m/s
 % 6DoF: 8m/s  10m/s  14m/s  16m/s  18m/s  20m/s  22m/s  25m/s  28m/s  30m/s
 windspeed = 22; 
@@ -38,6 +38,23 @@ windspeed = 22;
 [act, base_windspeed, constr, DE2019, ENVMT, Lbooth, ...
 	loiterStates, params, simInit, T, winchParameter] = ...
 	Get_simulation_params(windspeed, Kite_DOF);
+
+
+% Added by Jesse Hummel:
+% This should maybe go in some user selection part together with Kite_DOF
+% and windspeed.
+params.use_passive_torque_control = true;
+params.kite_alpha_mode = 1;  % 1 = inversionPathDynamics (original), 2 = always max alpha, 3 = kite tether force control.
+
+% Tuned variables (tuned for 3DOF at 22 m/s). The controller gains were
+% tuned using a grid search whereas the other parameters were iteratively
+% tuned by hand.
+% This should go in `Get_simulation_params`.
+params.winch_Ft_min = 0.0e6;    % Minimum force that the winch puts on the tether.  % TODO: Should this be a winchParameter?
+params.winch_Ft_max = 1.390e6;  % Maximum force that the winch puts on the tether.
+params.ktfc_Ft_max = 1.364e6;   % Tether force before kite tether force control will be enabled.
+params.ktfc_kp = 0.75;          % Proportional gain for kite tether force control.
+params.ktfc_ki = 1.0;           % Integral gain for kite tether force control.
 
 %% Run simulation untill average pumping cycle power convergence
 matlab_version = version('-release');
@@ -117,3 +134,9 @@ if simOut.power_conv_flag
 else
     warning('Simulation did not converge')
 end
+
+%% Save run.
+close all
+fname = input('name this run: ', "s");
+save("Results\data\" + fname + ".mat")
+
