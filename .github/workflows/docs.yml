@@ -24,8 +24,9 @@ jobs:
           release: R2023a
       - name: Install MATLAB Engine
         run: |
-          MATLAB_ROOT=$(matlabroot)  # Get MATLAB installation path
-          cd $MATLAB_ROOT/extern/engines/python
+          MATLAB_ROOT=$(matlab -batch "disp(matlabroot)" | tail -n 1)
+          echo "MATLAB root directory: $MATLAB_ROOT"
+          cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install
       - name: Install dependencies
         run: |
