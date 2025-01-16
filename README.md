@@ -1,4 +1,4 @@
-# MegAWES (3DoF & 6DoF kite dynamics)
+# MegAWES (6DoF kite dynamics)
 
 [![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release)](https://github.com/awegroup/MegAWES/releases)
 [![Matlab19B](https://img.shields.io/static/v1?label=Matlab%20Simulink&message=2019B&color=brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to run the software and how to install them.
 
-1. Install Matlab/Simulink R2019B and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
+1. Install Matlab/Simulink R2023a and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
    
    ```
    Matlab
