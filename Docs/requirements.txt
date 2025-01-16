@@ -1,0 +1,14 @@
+# Sphinx extensions
+sphinx
+sphinxcontrib-matlabdomain
+sphinx-tabs
+sphinx-copybutton
+
+# MyST parser
+myst-parser
+linkify-it-py
+
+# Themes
+pydata-sphinx-theme
+sphinx-book-theme
+sphinx-rtd-theme
