@@ -24,7 +24,7 @@ jobs:
           release: R2023a
       - name: Install MATLAB Engine
         run: |
-          MATLAB_ROOT=$(matlab -nojvm -r "disp(matlabroot); exit")
+          MATLAB_ROOT=/opt/hostedtoolcache/MATLAB/2023.1.999/x64
           echo "MATLAB root directory: $MATLAB_ROOT"
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install
