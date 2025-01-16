@@ -3,7 +3,6 @@ sphinx
 sphinxcontrib-matlabdomain
 sphinx-tabs
 sphinx-copybutton
-m2r2
 sphinx-simulink
 
 # MyST parser
@@ -14,3 +13,5 @@ linkify-it-py
 pydata-sphinx-theme
 sphinx-book-theme
 sphinx-rtd-theme
+
+matlabengine==9.14.7

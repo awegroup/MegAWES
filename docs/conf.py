@@ -39,14 +39,18 @@ extensions = [
     "sphinx_copybutton",
     "sphinx.ext.viewcode",
     "sphinx_tabs.tabs",
-    "m2r2",
-    "sphinxsimulink"
+    "sphinxsimulink",
     "myst_parser"
 ]
 
 myst_enable_extensions = [
     "linkify",
 ]
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # MATLAB settings for autodoc
 here = os.path.dirname(os.path.abspath(__file__))

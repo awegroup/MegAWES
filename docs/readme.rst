@@ -5,4 +5,5 @@ Readme
    :hidden:
    :maxdepth: 2
 
-.. mdinclude:: ../README.md
+.. include:: ../README.md
+   :parser: myst_parser
