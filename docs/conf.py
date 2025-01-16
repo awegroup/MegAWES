@@ -33,7 +33,6 @@ release = "3.0.0"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "myst_parser",
     "sphinxcontrib.matlab", # Required for MATLAB
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
@@ -42,6 +41,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "m2r2",
     "sphinxsimulink"
+    "myst_parser"
 ]
 
 myst_enable_extensions = [
