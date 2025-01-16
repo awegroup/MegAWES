@@ -13,5 +13,3 @@ linkify-it-py
 pydata-sphinx-theme
 sphinx-book-theme
 sphinx-rtd-theme
-
-matlabengine==9.14.7
