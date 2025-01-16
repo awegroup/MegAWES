@@ -1,0 +1,15 @@
+#PBS ## This names the job for the queueing system
+#PBS -N circle_pattern
+
+##This denotes the number of nodes and processors that the job should be run on.
+##You can change the number of processers per node (ppn)
+#PBS -q fpt-gpu
+#PBS -l nodes=1:ppn=36:typek,walltime=11:00:00
+#PBS -m abe
+#PBS -M d.eijkelhof@tudelft.nl
+#
+module load matlab/2019b
+#
+cd ${PBS_O_WORKDIR}
+#
+matlab -batch "numProcs=36;runOptimisation;"

@@ -5,17 +5,19 @@
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
 [![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/megawes)
 
-MegAWES is a Matlab/Simulink model of an airborne wind enrgy (AWE) system based on a tethered rigid wing that is operated in pumping cycles producing multiple megawatt of electricity. The framework is a further development of the graduation project of Dylan Eijkelhof which was jointly supervised by TU Delft, ETH Zurich and DTU [[1,2]](#References). The ultimate purpose is to provide a reference model of a megawatt-range AWE system and a computational framework to simulate its operation. The simulink framework includes the following model components:
+MegAWES is a Matlab&reg;/Simulink&reg; model of an airborne wind energy (AWE) system based on a tethered fixed-wing that is operated in pumping cycles producing multiple megawatts of electricity. The framework is a further development of Dylan Eijkelhof's graduation project, which was jointly supervised by TU Delft, ETH Zurich, and DTU [[1,2]](#References). The ultimate purpose is to provide several reference models of (sub)megawatt-AWE systems and a computational framework to dynamically simulate its operation. The Simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
 * Choice between 3DoF point-mass  and 6DoF rigid-body dynamic solver.
-* Aircraft controller for power generation flight controls and path tracking.
-* Set-force controlled dynamic winch (based on [[3]](#References)).
+* Modified L0 Aircraft controller for power generation flight controls and path tracking.
+* Different flight patterns possible: circle, figure-of-eight up-loop and down-loops.
+* Optimal (quasi-steady) tether force controlled dynamic winch for traction phase (based on [[3]](#References)).
+* Set-force controlled dynamic winch for retraction phase (based on [[4]](#References)).
 
-![](DE2019_Aircraft.jpeg)
+![](./Lib/DE2019_Aircraft.jpeg)
 
-## Getting Started
+## :gear:Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -24,133 +26,140 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to run the software and how to install them.
 
 1. Install Matlab/Simulink R2019B and some extra packages (for instructions how te get matlab, click [here](https://www.mathworks.com/products/get-matlab.html)):
+   
+   ```
+   Matlab
+   Simulink
+   Curve Fitting Toolbox
+   Stateflow
+   DSP System Toolbox
+   Aerospace Toolbox
+   Aerospace Blockset
+   ```
 
-	```
-	Matlab (version R2019B, 9.7)
-	Simulink (version R2019B, 10.0)
-	Curve Fitting Toolbox (version 3.5.10, only needed for 6DoF)
-	Stateflow (version 10.1)
-	DSP System Toolbox (version 9.9, only needed for tether test cases)
-	```
-	
-2. Install Git and Git-lfs (for instructions how te get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
-3. After installation of git-lfs run the following command in a terminal (Unix, MacOS)/command(Windows) window:
+2. Install **Git** and **Git-lfs** (for instructions on how to get git and git-lfs, click [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for git and [here](https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage) for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).
 
-	```
-	git lfs install
-	```
+3. After installation of **git-lfs** run the following command in a terminal (Unix, MacOS)/command window (Windows):
+   
+   ```
+   git lfs install
+   ```
 
 ### Installing
 
 1. Do not forget to check if the [previously mentioned software](#Prerequisites) is installed.
+
 2. Get a copy of the latest `MegAWES` environment release:
+   
+   ```
+   git clone https://github.com/awegroup/MegAWES.git
+   ```
 
-	```
-	git clone https://github.com/awegroup/MegAWES.git
-	```
+## :muscle:Deployment
 
-## Deployment
-
-A step by step series of examples that tell you how to get a development env running, tested on macOS 11.2.3
+A step by step series of examples that tell you how to get a development env running, tested on macOS 14.6.1
 
 1. The following file allows you to run a full simulation until power cycle convergence of the current aircraft.
-
-	```
-	Run_OneSimulation.m
-	```
-	
-	Two important parameters are set here:
-	
-	```
-	Kite_DOF: Kite degrees of freedom, 3 (point-mass) or 6 (rigid-body)
-	windspeed: Maximum wind speed of the wind shear profile, occurs at 250m altitude and above,
-		3DoF: Always forced to 22m/s
-		6DoF: 8m/s, 10m/s, 14m/s, 16m/s, 18m/s, 20m/s, 22m/s, 25m/s, 28m/s, 30m/s
-	```
+   
+   ```
+   runMain.m
+   ```
+   
+   The input parameters are set in Lib/[pattern]_simInput.yaml, the pattern here links to the demo files showing how to set-up the specific pattern in the pathparam (struct) variable.
 
 2. All input variables are set in:
+   
+   ```
+   Lib/[pattern]_simInput.yaml
+   ```
+   
+    where the kite specific variable are set in:
+   
+   ```
+   Lib/MegAWESkite.yaml
+   ```
+   
+    Following parameters are set:
+   
+   1. **ENVMT**: Environment parameters, steady max windspeed (no turbulence is included at this stage).
+   2. **simInit**: Simulation initialisation parameters.
+   3. **actuatorLimit**: Actuator constraints.
+   4. **tetherParams**: Tether characteristics.
+   5. **winchParameter**: Winch characteristics.
+   6. **pathparam**: Flight path shape.
+   7. **controllerGains_traction**: Controller gains (traction).
+   8. **controllerGains_retraction**: Controller gains (retraction).
 
-	```
-	Src/Common/Get_simulation_params.m
-	```
-		
-	where base variables are set in:
-	
-	```
-	Src/Common/initAllSimParams_DE2019.m
-	```
-	
-	Following parameters are set:
-	1. Aircraft is loaded from the `DE2019_params.mat` file.
-	2. Environment parameters
-	3. Steady base windspeed, 6m altitude (no turbulence is included at this stage).
-	4. Simulation initialisation parameters
-	5. Simulation constraints
-	6. Tether characteristics
-	7. Winch characteristics
-	8. Flight path shape
-	9. Tether force set-point (tracking)
-	10. Controller gains
-	11. Initialisation phase (loiter)
+3. In the simulink models for both 3 and 6 DoF, the output parameters are defined in the root of the simulink model on the right side
+   
+   An example of the visualisation of the output is given in `demoPlot.m`.
+   There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production. 
 
-3. In the simulink models for both 3 and 6 DoF, the output parameters are defined in block:
+4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder. Eijkelhof [[5]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
-	```
-	RequirementModelsAndLogging
-	```
+## :gem:Documentation
 
-	An example of the visualisation of the output is given in the main file `Run_OneSimulation.m` at the bottom.
-	There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production. 
-	
-	Also an example is provided on how to visualise the converged power pumping cycle as an animation.
+A detailed documentation of the simulation framework can be accessed on [github pages]().
 
-4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder which are divided up between code required for 3DoF, 6DoF or both simulations. Rapp [[4]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
+## :triangular_ruler:Built With
 
-## Documentation
-
-A detailed documentation of the simulation framework can be accessed on [readthedocs](https://megawes.readthedocs.io/en/latest/).
-
-## Built With
-
-* [Matlab](https://www.mathworks.com/products/matlab) - The program language used
-* [Simulink](https://www.mathworks.com/products/simulink) - The GUI used for model-based design through block diagrams
+* [Matlab®](https://www.mathworks.com/products/matlab) - The program language
+* [Simulink®](https://www.mathworks.com/products/simulink) - The GUI used for model-based simulation design through block diagrams
 
 <!--## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.-->
 
-## Versioning
+## :pushpin:Versioning
 
 For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags). 
 
-## Authors
+## :pencil2:Authors
 
 * **Dylan Eijkelhof** - *Initial work current system design, multi-MW aircraft* - [GitHub](https://github.com/DylanEij)
 * **Urban Fasel** - *Initial framework set-up* 
-* **Sebastian Rapp** - *Flight controller design* - [GitHub](https://github.com/sebrap)
+* **Nicola Rossi** - *Updated flight controller implementation*
+* **Jesse Hummel** - *Winch design* - [GitHub](https://github.com/jesseishi)
 
 See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
 
-## License
+## :wave: Contributing (optional)
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## :warning: License and Waiver
 
 This project is licensed under the Apache License - see the [LICENSE](LICENSE.md) file for details
 
-## References
+> Technische Universiteit Delft hereby disclaims all copyright interest in the program “MegAWES (a fixed-wing power computation model) written by the Author(s).
+> 
+> Prof.dr. H.G.C. (Henri) Werij, Dean of Aerospace Engineering
+> 
+> Copyright (c) 2025 Dylan Eijkelhof
+
+## :books:References
+
 [1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
 
 [2] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. [doi:10.1088/1742-6596/1618/3/032020](https://doi.org/10.1088/1742-6596/1618/3/032020)
 
-[3] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
+[3] J. Hummel, T. Pollack, D. Eijkelhof, E. -J. van Kampen and R. Schmehl, "Winch Sizing for Ground-Generation Airborne Wind Energy Systems," *2024 European Control Conference (ECC)*, Stockholm, Sweden, 2024, pp. 675-680, doi: [10.23919/ECC64448.2024.10590780](https://doi.org/10.23919/ECC64448.2024.10590780).
 
-[4] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. [doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae](https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae)
+[4] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. [doi:10.1016/j.renene.2015.04.028](http://doi.org/10.1016/j.renene.2015.04.028)
 
-## Acknowledgments
+[5] D. Eijkelhof, N. Rossi, and R. Schmehl: Optimal Flight Pattern Debate for Airborne Wind Energy Systems: Circular or Figure-of-eight?, Wind Energ. Sci. Discuss. [preprint], in review, 2024. [doi:10.5194/wes-2024-139](https://doi.org/10.5194/wes-2024-139).
+
+## :eyes:Acknowledgments
 
 * Outstanding guidance of Roland Schmehl (TU Delft) and Mac Gaunaa (DTU wind energy).
-* This project is financially supported by the Unmanned Valley Valkenburg project of the European Regional Development Fund.
-* A special thank you to the following people whos work helped with the design of the DE2019 aircraft:
-	* Dominic Keidel
-	* Cla Mattia Galliard
-	* Lorenz Affentranger
-	* Gian Joerimann
-	* Michael Imobersteg
+* This project is partially financially supported by the Unmanned Valley Valkenburg project of the European Regional Development Fund.
+* This project is partially financially supported by Dutch Research Council NWO (project NEON: New Energy and Mobility Outlook for the Netherlands under grant number 17628).
+* The project was supported by the Digital Competence Centre, Delft University of Technology.
+* A special thank you to the following people whos work helped with the design of the fixed-wing monoplane kite:
+  * Dominic Keidel
+  * Cla Mattia Galliard
+  * Lorenz Affentranger
+  * Gian Joerimann
+  * Michael Imobersteg

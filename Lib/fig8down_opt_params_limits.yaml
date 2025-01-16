@@ -1,0 +1,49 @@
+controllerGains_traction:
+    rateRoll_P: 
+    - [30,100]
+    ratePitch_P: 
+    - [1,40]
+    attitudeRoll_P: 
+    - [1,70]
+    attitudeRoll_I: 
+    - [0,30]
+    attitudeRoll_D: 
+    - [20,100]
+    attitudePitch_P: 
+    - [1,100]
+    attitudePitch_I: 
+    - [1,30]
+controllerGains_retraction:
+    rateRoll_P: 
+    - [30,100]
+    ratePitch_P: 
+    - [1,40]
+    attitudeRoll_P: 
+    - [1,70]
+    attitudeRoll_I: 
+    - [0,30]
+    attitudeRoll_D: 
+    - [20,100]
+    attitudePitch_P: 
+    - [1,100]
+    attitudePitch_I: 
+    - [1,30]
+tetherParams:
+    maxLength: 
+    - [400,1000]
+    minLength: 
+    - [0.3,0.85]
+pathparam:
+    elevAng: 
+    - [0.48,0.6981]
+    aBooth:
+    - [0.2,1.5]
+    bBooth:
+    - [0.7,1.7]
+winchParameter:
+    ki: 
+    - [0,10]
+    kp: 
+    - [15,45]
+    ftether_retrac: 
+    - [100000,600000]

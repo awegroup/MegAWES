@@ -1,0 +1,87 @@
+simInit: 
+    simTime_realTimeOut: 600
+    simulationTime: 1500
+    Ts_power_conv_check: 0.1
+    doPlot: false
+    sample_time_vis: 0.1
+    pos_W_init:
+    - [180.9171]
+    - [0.0]
+    - [583.9947]
+    vel_B_init_noWind:
+    - [60.0]
+    - [0.0]
+    - [0.0]
+    sideSlipAngle_rad: 0
+    bodyRotationRates_init:
+    - [0,0,0]
+    thresholdConv_power: 150000
+    numCyclesMinimumConv: 3
+ENVMT:
+    base_windspeed: 15
+    g: 9.8066
+    rhos: 1.225
+    windDirection_rad: 0.0
+controllerGains_traction:
+    rateRoll_P: 86.6351
+    ratePitch_P: 64.5038
+    rateYaw_P: 0.0
+    attitudeRoll_P: 8.3193
+    attitudeRoll_I: 1
+    attitudeRoll_D: 63.6035
+    attitudePitch_P: 26.4413
+    attitudePitch_I: 1.5521
+controllerGains_retraction:
+    rateRoll_P: 30.1485
+    ratePitch_P: 60.4649
+    rateYaw_P: 0.0
+    attitudeRoll_P: 100
+    attitudeRoll_I: 1
+    attitudeRoll_D: 89.2007
+    attitudePitch_P: 98.0697
+    attitudePitch_I: 45.7137
+tetherParams:
+    maxLength: 862.792
+    minLength: 0.8
+    safetyFactor: 1.5
+    ultimateStrength: 3.6e9
+    densityMaterial: 970
+    modulusE: 116e9
+    CD: 1.2
+    attachmentPoint_from_cog:
+    - [0]
+    - [0]
+    - [0]
+    numParticles: 15
+    eta1: 0.403362463949762
+    eta2: 0.646914366052548
+    alpha1: 4.33961097083308
+    alpha2: 0.745653460592095
+pathparam:
+    isCircle: true
+    polarAng: 0
+    elevAng: 0.66832
+    circRad: 203.528
+    aBooth: 0
+    bBooth: 0
+    hTau: 0
+    direction: -1
+    numPoints_ahead: 11
+actuatorLimit:
+    rateElevator: 43.75
+    rateAileron: 3.0
+    deflectionAileron: 1
+    deflectionElevator: 35
+    deflectionRudder: 35
+winchParameter:
+    lj_dot_init: 0
+    radius: 1.5
+    inertia: 1e4
+    friction: 10
+    a_max: 5
+    a_min: -5
+    v_max: 25
+    v_min: -25
+    ki: 0
+    kp: 3.7387
+    ftether_retrac: 30000
