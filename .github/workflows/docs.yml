@@ -32,7 +32,7 @@ jobs:
           MATLAB_EXEC=$(whereis matlab | awk '{print $2}')
           MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
           cd "$MATLAB_ROOT/extern/engines/python"
-          python setup.py install
+          python setup.py install --user
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
