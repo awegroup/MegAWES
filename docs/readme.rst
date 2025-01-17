@@ -6,4 +6,4 @@ Readme
    :maxdepth: 2
 
 .. include:: ../README.md
-   :parser: myst_parser
+   :parser: myst_parser.sphinx_

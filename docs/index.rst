@@ -12,8 +12,6 @@ Welcome to MegAWES documentation!
 
    readme
    modules_new
-   
-   API Reference <api>
 
 Indices and tables
 ==================

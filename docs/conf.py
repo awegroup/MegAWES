@@ -52,6 +52,10 @@ source_suffix = {
     '.md': 'markdown',
 }
 
+source_encoding = 'utf-8'
+autodoc_member_order = 'alphabetical'
+add_module_names = False
+
 # MATLAB settings for autodoc
 here = os.path.dirname(os.path.abspath(__file__))
 matlab_src_dir = os.path.abspath(os.path.join(here, ".."))
@@ -84,10 +88,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = "sphinx_book_theme"
 # html_theme = "pydata_sphinx_theme"
 
+html_theme_options = {# Toc options
+    'collapse_navigation': True,
+    'navigation_depth': 4
+}
+
 
 html_title = "MegAWES"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static']
+html_static_path = ['Lib']

@@ -5,19 +5,19 @@
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
 [![docs](https://readthedocs.org/projects/pip/badge/)](https://readthedocs.org/projects/megawes)
 
-MegAWES is a Matlab&reg;/Simulink&reg; model of an airborne wind energy (AWE) system based on a tethered fixed-wing that is operated in pumping cycles producing multiple megawatts of electricity. The framework is a further development of Dylan Eijkelhof's graduation project, which was jointly supervised by TU Delft, ETH Zurich, and DTU [[1,2]](#References). The ultimate purpose is to provide several reference models of (sub)megawatt-AWE systems and a computational framework to dynamically simulate its operation. The Simulink framework includes the following model components:
+MegAWES is a Matlab&reg;/Simulink&reg; model of an airborne wind energy (AWE) system based on a tethered fixed-wing that is operated in pumping cycles producing multiple megawatts of electricity. The framework is a further development of Dylan Eijkelhof's graduation project, which was jointly supervised by TU Delft, ETH Zurich, and DTU [[1,2]](references). The ultimate purpose is to provide several reference models of (sub)megawatt-AWE systems and a computational framework to dynamically simulate its operation. The Simulink framework includes the following model components:
 
 * Pre-calculated look-up tables for aircraft's aerodynamic behaviour.
 * Segmented tether with a single attachment point at the kite's centre of gravity.
 * Choice between 3DoF point-mass  and 6DoF rigid-body dynamic solver.
 * Modified L0 Aircraft controller for power generation flight controls and path tracking.
 * Different flight patterns possible: circle, figure-of-eight up-loop and down-loops.
-* Optimal (quasi-steady) tether force controlled dynamic winch for traction phase (based on [[3]](#References)).
-* Set-force controlled dynamic winch for retraction phase (based on [[4]](#References)).
+* Optimal (quasi-steady) tether force controlled dynamic winch for traction phase (based on [[3]](#references)).
+* Set-force controlled dynamic winch for retraction phase (based on [[4]](#references)).
 
-![](./Lib/DE2019_Aircraft.jpeg)
+![](Lib/DE2019_Aircraft.jpeg)
 
-## :gear:Getting Started
+## ⚙️Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -47,7 +47,7 @@ What things you need to run the software and how to install them.
 
 ### Installing
 
-1. Do not forget to check if the [previously mentioned software](#Prerequisites) is installed.
+1. Do not forget to check if the [previously mentioned software](#prerequisites) is installed.
 
 2. Get a copy of the latest `MegAWES` environment release:
    
@@ -55,7 +55,7 @@ What things you need to run the software and how to install them.
    git clone https://github.com/awegroup/MegAWES.git
    ```
 
-## :muscle:Deployment
+## 💪Deployment
 
 A step by step series of examples that tell you how to get a development env running, tested on macOS 14.6.1
 
@@ -93,15 +93,15 @@ A step by step series of examples that tell you how to get a development env run
 3. In the simulink models for both 3 and 6 DoF, the output parameters are defined in the root of the simulink model on the right side
    
    An example of the visualisation of the output is given in `demoPlot.m`.
-   There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production. 
+   There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production.
 
-4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder. Eijkelhof [[5]](#References) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
+4. Required libraries are found in the `Lib` folder and the source code can be found in the `Src` folder. Eijkelhof [[5]](#references) gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.
 
-## :gem:Documentation
+## 💎Documentation
 
 A detailed documentation of the simulation framework can be accessed on [github pages]().
 
-## :triangular_ruler:Built With
+## 📐Built With
 
 * [Matlab®](https://www.mathworks.com/products/matlab) - The program language
 * [Simulink®](https://www.mathworks.com/products/simulink) - The GUI used for model-based simulation design through block diagrams
@@ -110,28 +110,28 @@ A detailed documentation of the simulation framework can be accessed on [github 
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.-->
 
-## :pushpin:Versioning
+## 📌Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags). 
+For the versions available, see the [tags on this repository](https://github.com/awegroup/MegAWES/tags).
 
-## :pencil2:Authors
+## ✏️Authors
 
 * **Dylan Eijkelhof** - *Initial work current system design, multi-MW aircraft* - [GitHub](https://github.com/DylanEij)
-* **Urban Fasel** - *Initial framework set-up* 
+* **Urban Fasel** - *Initial framework set-up*
 * **Nicola Rossi** - *Updated flight controller implementation*
 * **Jesse Hummel** - *Winch design* - [GitHub](https://github.com/jesseishi)
 
 See also the list of [contributors](https://github.com/awegroup/MegAWES/graphs/contributors) who participated in this project.
 
-## :wave: Contributing (optional)
+## 👋Contributing (optional)
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## :warning: License and Waiver
+## ⚠️License and Waiver
 
-This project is licensed under the Apache License - see the [LICENSE](LICENSE.md) file for details
+This project is licensed under the Apache License - see the LICENSE file for details
 
 > Technische Universiteit Delft hereby disclaims all copyright interest in the program “MegAWES (a fixed-wing power computation model) written by the Author(s).
 > 
@@ -139,7 +139,7 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 > 
 > Copyright (c) 2025 Dylan Eijkelhof
 
-## :books:References
+## 📚References
 
 [1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
 
@@ -151,7 +151,7 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE.md
 
 [5] D. Eijkelhof, N. Rossi, and R. Schmehl: Optimal Flight Pattern Debate for Airborne Wind Energy Systems: Circular or Figure-of-eight?, Wind Energ. Sci. Discuss. [preprint], in review, 2024. [doi:10.5194/wes-2024-139](https://doi.org/10.5194/wes-2024-139).
 
-## :eyes:Acknowledgments
+## 👀Acknowledgments
 
 * Outstanding guidance of Roland Schmehl (TU Delft) and Mac Gaunaa (DTU wind energy).
 * This project is partially financially supported by the Unmanned Valley Valkenburg project of the European Regional Development Fund.
