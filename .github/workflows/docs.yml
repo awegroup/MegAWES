@@ -35,7 +35,7 @@ jobs:
           python setup.py install --user
       - name: verify MATLAB install
         run: |
-          matlab -nojvm -r "disp('MATLAB is ready to use!');exit"
+          matlab -nodisplay -r "disp('MATLAB is ready to use!');exit"
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
@@ -44,7 +44,6 @@ jobs:
           pip install -r docs/requirements.txt
       - name: Sphinx build
         run: |
-          echo "MLM_LICENSE_FILE=${{ secrets.MATLAB_LICENSE_FILE }}" >> $GITHUB_ENV
           sphinx-build -v -v -v docs/ docs/_build/
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
