@@ -33,7 +33,7 @@ jobs:
           MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install --user
-     - name: verify MATLAB install
+      - name: verify MATLAB install
         run: |
           matlab -nojvm -r "disp('MATLAB is ready to use!');exit"
       - name: Verify MATLAB Engine
