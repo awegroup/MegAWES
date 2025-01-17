@@ -22,6 +22,10 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023a
+          products: >
+            Simulink
+            Aerospace_Toolbox
+            Aerospace_Blockset
       - name: Install MATLAB Engine
         run: |
           MATLAB_ROOT=/opt/hostedtoolcache/MATLAB/2023.1.999/x64
