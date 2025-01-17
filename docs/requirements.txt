@@ -3,7 +3,7 @@ sphinx
 sphinxcontrib-matlabdomain
 sphinx-tabs
 sphinx-copybutton
-sphinx-simulink
+
 
 # MyST parser
 myst-parser
@@ -13,3 +13,7 @@ linkify-it-py
 pydata-sphinx-theme
 sphinx-book-theme
 sphinx-rtd-theme
+
+# Sphinx simulink extension custom
+#sphinx-simulink
+docs/sphinx_simulink-0.0.2-py3-none-any.whl
