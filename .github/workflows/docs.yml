@@ -21,7 +21,7 @@ jobs:
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
-          release: R2023a
+          release: R2024a
           cache: true
           products: >
             Simulink
@@ -29,8 +29,10 @@ jobs:
             Aerospace_Blockset
       - name: Install MATLAB Engine
         run: |
-          MATLAB_ROOT=/opt/hostedtoolcache/MATLAB/2023.1.999/x64
-          echo "MATLAB root directory: $MATLAB_ROOT"
+          # MATLAB_ROOT=/opt/hostedtoolcache/MATLAB/2023.1.999/x64
+          # echo "MATLAB root directory: $MATLAB_ROOT"
+          MATLAB_EXEC=$(whereis matlab | awk '{print $2}')
+          MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install
       - name: Install dependencies
