@@ -29,8 +29,6 @@ jobs:
             Aerospace_Blockset
       - name: Install MATLAB Engine
         run: |
-          # MATLAB_ROOT=/opt/hostedtoolcache/MATLAB/2023.1.999/x64
-          # echo "MATLAB root directory: $MATLAB_ROOT"
           MATLAB_EXEC=$(whereis matlab | awk '{print $2}')
           MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
           cd "$MATLAB_ROOT/extern/engines/python"
@@ -40,6 +38,7 @@ jobs:
           pip install -r docs/requirements.txt
       - name: Sphinx build
         run: |
+          echo "MLM_LICENSE_FILE=${{ secrets.MATLAB_LICENSE_FILE }}" >> $GITHUB_ENV
           sphinx-build -v -v -v docs/ docs/_build/
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
