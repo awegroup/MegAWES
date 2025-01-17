@@ -35,7 +35,9 @@ jobs:
           python setup.py install --user
       - name: verify MATLAB install
         run: |
-          matlab -nodisplay -r "disp('MATLAB is ready to use!');quit;" || true
+          echo "disp('MATLAB is ready to use!'); exit;" > verify.m
+          matlab -nodisplay -r "verify" -logfile matlab_output.log || true
+          cat matlab_output.log
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
