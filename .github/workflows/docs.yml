@@ -33,6 +33,9 @@ jobs:
           MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install --user
+     - name: verify MATLAB install
+        run: |
+          matlab -nojvm -r "disp('MATLAB is ready to use!');exit"
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
