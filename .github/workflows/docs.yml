@@ -35,9 +35,7 @@ jobs:
           python setup.py install --user
       - name: verify MATLAB install
         run: |
-          echo "disp('MATLAB is ready to use!'); exit;" > verify.m
-          matlab -nodisplay -r "verify" -logfile matlab_output.log || true
-          cat matlab_output.log
+          run: matlab -batch "pyenv(Version='3.10')"
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
