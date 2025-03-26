@@ -137,13 +137,13 @@ function [simInit, ENVMT, controllerGains_traction, ...
     tetherParams.A = (pi/4*tetherParams.d_tether^2);
 
     l_j = norm(simInit.pos_W_init);
-    phi_init = atan2(simInit.pos_W_init(2),sqrt(l_j^2-simInit.pos_W_init(2)^2));
+    phi_init = atan2(simInit.pos_W_init(3),sqrt(l_j^2-simInit.pos_W_init(3)^2));
     if abs(phi_init)<1e-5
         phi_init = 0;
     end
-    theta_init = atan2(simInit.pos_W_init(1),simInit.pos_W_init(3));
+    theta_init = atan2(simInit.pos_W_init(2),simInit.pos_W_init(1));
 
-    tetherParams.Tn_vect = [theta_init; phi_init; 0.002*E*tetherParams.A]; %theta,phi,force magnitude
+    tetherParams.Tn_vect = [theta_init; phi_init; 0.0005*E*tetherParams.A]; %theta,phi,force magnitude
 
     tetherParams.tether_inital_lenght = norm(simInit.pos_O_init);
     tetherParams.l0 = tetherParams.tether_inital_lenght/(tetherParams.numParticles+1);

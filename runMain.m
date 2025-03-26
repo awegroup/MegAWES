@@ -38,3 +38,10 @@ simIn = initAllStructs(model, simInit, ENVMT, controllerGains_traction, ...
 
 
 simOut = sim(simIn(1),'UseFastRestart',false);
+
+
+% tetherParams.tether_inital_lenght = tetherParams.tether_inital_lenght+10;
+% tetherParams.Tn_vect(3) = 1000;
+% [tetherPos, Ft_Ground, Ft_Kite, Fvec, x, exitFlag]= ...
+%     Tether_QuasiStatic2(simInit.pos_W_init, simInit.iniVel', zeros(3,tetherParams.numParticles), ...
+%     tetherParams.tether_inital_lenght, tetherParams.Tn_vect, ENVMT, tetherParams);
