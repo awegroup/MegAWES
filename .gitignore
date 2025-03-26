@@ -52,7 +52,6 @@ docs/_build
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
