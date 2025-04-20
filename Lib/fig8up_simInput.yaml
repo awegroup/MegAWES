@@ -58,9 +58,9 @@ pathparam:
     polarAng: 0
     elevAng: 0.69668
     circRad: 0
-    aBooth: 0.30486
-    bBooth: 0.82308
-    hTau: 0.0015
+    aBooth: 203.2400
+    bBooth: 548.7200
+    hTau: 1
     direction: -1
     numPoints_ahead: 4
 actuatorLimit:

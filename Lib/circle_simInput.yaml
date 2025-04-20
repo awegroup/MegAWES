@@ -64,7 +64,7 @@ pathparam:
     circRad: 231.729
     aBooth: 0
     bBooth: 0
-    hTau: 0
+    hTau: 1
     direction: -1
     numPoints_ahead: 11
 actuatorLimit:

@@ -123,9 +123,6 @@ function costOut = getCost_new(optsIN, simOut, simInit, tetherForceMax, alphamax
                 %Velocity 
                 pVel(i) = pen_vel * max(max(Vel_last_cycle.Data)/velmax - 1, 0);
                 
-                % Crest factor 
-                % pCft(i) = pen_cft * max(max()); 
-                
                 % Peak to average power ratio
                 P_mech_traction = P_mech_last_cycle.Data;
                 mean_P_mech_traction = mean(P_mech_traction);
