@@ -4,10 +4,6 @@ simInit:
     Ts_power_conv_check: 0.1
     doPlot: false
     sample_time_vis: 0.1
-    pos_W_init:
-    - [180.9171]
-    - [0.0]
-    - [583.9947]
     vel_B_init_noWind:
     - [60.0]
     - [0.0]
@@ -23,26 +19,26 @@ ENVMT:
     rhos: 1.225
     windDirection_rad: 0.0
 controllerGains_traction:
-    rateRoll_P: 52.0689
-    ratePitch_P: 30.6522
+    rateRoll_P: 66.6699
+    ratePitch_P: 22.2994
     rateYaw_P: 0.0
-    attitudeRoll_P: 60.0767
-    attitudeRoll_I: 9.6335
-    attitudeRoll_D: 100
-    attitudePitch_P: 27.9744
-    attitudePitch_I: 15.7763
+    attitudeRoll_P: 53.8916
+    attitudeRoll_I: 1.5382
+    attitudeRoll_D: 143.315
+    attitudePitch_P: 44.3707
+    attitudePitch_I: 28.2471
 controllerGains_retraction:
-    rateRoll_P: 37.773
-    ratePitch_P: 29.1954
+    rateRoll_P: 52.4735
+    ratePitch_P: 19.3281
     rateYaw_P: 0.0
-    attitudeRoll_P: 34.6816
-    attitudeRoll_I: 13.5387
-    attitudeRoll_D: 43.7406
-    attitudePitch_P: 25.6962
-    attitudePitch_I: 45.7128
+    attitudeRoll_P: 51.252
+    attitudeRoll_I: 12.3611
+    attitudeRoll_D: 119.292
+    attitudePitch_P: 39.2354
+    attitudePitch_I: 21.3184
 tetherParams:
-    maxLength: 952.671
-    minLength: 0.58014
+    maxLength: 997.841
+    minLength: 0.38891
     safetyFactor: 1.5
     ultimateStrength: 3.6e9
     densityMaterial: 970
@@ -60,13 +56,13 @@ tetherParams:
 pathparam:
     isCircle: true
     polarAng: 0
-    elevAng: 0.6253
-    circRad: 231.729
+    elevAng: 0.4696
+    circRad: 220.03
     aBooth: 0
     bBooth: 0
-    hTau: 1
+    hTau: 0
     direction: -1
-    numPoints_ahead: 11
+    numPoints_ahead: 9
 actuatorLimit:
     rateElevator: 43.75
     rateAileron: 3.0
@@ -82,6 +78,6 @@ winchParameter:
     a_min: -5
     v_max: 25
     v_min: -25
-    ki: 0.69671
-    kp: 43.417
-    ftether_retrac: 248643
+    ki: 0.053227
+    kp: 48.7838
+    ftether_retrac: 470226

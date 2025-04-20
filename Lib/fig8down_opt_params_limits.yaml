@@ -37,9 +37,9 @@ pathparam:
     elevAng: 
     - [0.48,0.6981]
     aBooth:
-    - [133,1000]
+    - [0.2,1.5]
     bBooth:
-    - [466,1135]
+    - [0.7,1.7]
 winchParameter:
     ki: 
     - [0,10]

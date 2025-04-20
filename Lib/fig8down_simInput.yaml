@@ -19,26 +19,26 @@ ENVMT:
     rhos: 1.225
     windDirection_rad: 0.0
 controllerGains_traction:
-    rateRoll_P: 77.3254
-    ratePitch_P: 12.0959
+    rateRoll_P: 86.7312
+    ratePitch_P: 10.3919
     rateYaw_P: 100.0
-    attitudeRoll_P: 4.1813
-    attitudeRoll_I: 12.3674
-    attitudeRoll_D: 77.3508
-    attitudePitch_P: 9.624
-    attitudePitch_I: 14.6815
+    attitudeRoll_P: 9.7999
+    attitudeRoll_I: 12.0651
+    attitudeRoll_D: 91.7478
+    attitudePitch_P: 13.3333
+    attitudePitch_I: 14.5808
 controllerGains_retraction:
-    rateRoll_P: 56.3151
-    ratePitch_P: 28.8708
+    rateRoll_P: 91.8239
+    ratePitch_P: 26.5512
     rateYaw_P: 100.0
-    attitudeRoll_P: 49.6431
-    attitudeRoll_I: 1
-    attitudeRoll_D: 66.6193
-    attitudePitch_P: 87.955
-    attitudePitch_I: 2.7616
+    attitudeRoll_P: 63.1626
+    attitudeRoll_I: 3.7079
+    attitudeRoll_D: 72.1856
+    attitudePitch_P: 67.2689
+    attitudePitch_I: 2.8128
 tetherParams:
-    maxLength: 980.277
-    minLength: 0.8
+    maxLength: 998.23
+    minLength: 0.80456
     safetyFactor: 1.5
     ultimateStrength: 3.6e9
     densityMaterial: 970
@@ -56,11 +56,11 @@ tetherParams:
 pathparam:
     isCircle: false
     polarAng: 0
-    elevAng: 0.5728
+    elevAng: 0.48924
     circRad: 0
-    aBooth: 849.5333
-    bBooth: 596.3533
-    hTau: 1
+    aBooth: 1.0666
+    bBooth: 1.0708
+    hTau: 0.0015
     direction: 1
     numPoints_ahead: 4
 actuatorLimit:
@@ -78,6 +78,6 @@ winchParameter:
     a_min: -5
     v_max: 25
     v_min: -25
-    ki: 4.2116
-    kp: 35.1777
-    ftether_retrac: 263199
+    ki: 4.0488
+    kp: 37.7809
+    ftether_retrac: 139429
