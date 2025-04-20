@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Readme &#8212; MegAWES</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=6a41c08d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'readme';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Functions and Simulink models" href="modules_new.html" />
+    <link rel="prev" title="Welcome to MegAWES documentation!" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MegAWES</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Readme</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules_new.html">Functions and Simulink models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/readme.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Readme</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#megawes-v3">MegAWES V3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">⚙️Getting Started</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#installing">Installing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">💪Deployment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">💎Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-with">📐Built With</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">📌Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authors">✏️Authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-optional">👋Contributing (optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-waiver">⚠️License and Waiver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📚References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">👀Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="readme">
+<h1>Readme<a class="headerlink" href="#readme" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="megawes-v3">
+<h2>MegAWES V3<a class="headerlink" href="#megawes-v3" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/awegroup/MegAWES/releases"><img alt="Version" src="https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release" /></a>
+<a class="reference external" href="https://www.mathworks.com/products/simulink"><img alt="Matlab19B" src="https://img.shields.io/static/v1?label=Matlab%20Simulink&amp;message=2019B&amp;color=brightgreen" /></a> <!--static-->
+<a class="reference external" href="http://www.apache.org/licenses/"><img alt="License" src="https://img.shields.io/github/license/awegroup/MegAWES?label=License" /></a>
+<a class="reference external" href="https://readthedocs.org/projects/megawes"><img alt="docs" src="https://readthedocs.org/projects/pip/badge/" /></a></p>
+<p>MegAWES is a Matlab®/Simulink® model of an airborne wind energy (AWE) system based on a tethered fixed-wing that is operated in pumping cycles producing multiple megawatts of electricity. The framework is a further development of Dylan Eijkelhof’s graduation project, which was jointly supervised by TU Delft, ETH Zurich, and DTU <a class="reference internal" href="#references"><span class="xref myst">[1,2]</span></a>. The ultimate purpose is to provide several reference models of (sub)megawatt-AWE systems and a computational framework to dynamically simulate its operation. The Simulink framework includes the following model components:</p>
+<ul class="simple">
+<li><p>Pre-calculated look-up tables for aircraft’s aerodynamic behaviour.</p></li>
+<li><p>Segmented tether with a single attachment point at the kite’s centre of gravity.</p></li>
+<li><p>Choice between 3DoF point-mass (<strong>Version 2</strong>) and 6DoF rigid-body dynamic solver (<strong>Version 2, 3</strong>).</p></li>
+<li><p>Modified L0 Aircraft controller for power generation flight controls and path tracking (<strong>Version 3</strong>).</p></li>
+<li><p>Non-linear dynamic inversion controller (based on <a class="reference internal" href="#References"><span class="xref myst">[6]</span></a>) (<strong>Version 2</strong>).</p></li>
+<li><p>Different flight patterns possible (<strong>Version 3</strong>): circle, figure-of-eight up-loop and down-loops.</p></li>
+<li><p>Optimal (quasi-steady) tether force controlled dynamic winch for traction phase (based on <a class="reference internal" href="#references"><span class="xref myst">[3]</span></a>) (<strong>Version 3</strong>).</p></li>
+<li><p>Set-force controlled dynamic winch for retraction phase (based on <a class="reference internal" href="#references"><span class="xref myst">[4]</span></a>) (<strong>Version 2, 3</strong>).</p></li>
+<li><p>Optimisation strategy (CMA-ES) for cycle power optimisation or controller tuning when implementing a different kite design (<strong>Version 3</strong>).</p></li>
+</ul>
+<p><img alt="" src="Lib/DE2019_Aircraft.jpeg" /></p>
+<section id="getting-started">
+<h3>⚙️Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h3>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h4>
+<p>What things you need to run the software and how to install them.</p>
+<ol class="arabic">
+<li><p>Install Matlab/Simulink R2024a (earlier versions might work but not tested) and some extra packages (for instructions how te get matlab, click <a class="reference external" href="https://www.mathworks.com/products/get-matlab.html">here</a>):</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Matlab</span>
+<span class="s">Simulink</span>
+<span class="n">Aerospace</span><span class="w"> </span><span class="s">Blockset</span>
+<span class="n">Stateflow</span>
+<span class="s">DSP</span><span class="w"> </span><span class="s">System</span><span class="w"> </span><span class="s">Toolbox</span>
+<span class="n">Optimization</span><span class="w"> </span><span class="s">Toolbox</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install <strong>Git</strong> and <strong>Git-lfs</strong> (for instructions on how to get git and git-lfs, click <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a> for git and <a class="reference external" href="https://docs.github.com/en/github/managing-large-files/installing-git-large-file-storage">here</a> for git-lfs). Without git-lfs the libraries might not clone properly (note: other methods might also work).</p></li>
+<li><p>After installation of <strong>git-lfs</strong> run the following command in a terminal (Unix, MacOS)/command window (Windows):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>lfs<span class="w"> </span>install
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="installing">
+<h4>Installing<a class="headerlink" href="#installing" title="Link to this heading">#</a></h4>
+<ol class="arabic">
+<li><p>Do not forget to check if the <a class="reference internal" href="#prerequisites"><span class="xref myst">previously mentioned software</span></a> is installed.</p></li>
+<li><p>Get a copy of the latest <code class="docutils literal notranslate"><span class="pre">MegAWES</span></code> environment release:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/awegroup/MegAWES.git
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="deployment">
+<h3>💪Deployment<a class="headerlink" href="#deployment" title="Link to this heading">#</a></h3>
+<p>A step by step series of examples that tell you how to get a development env running, tested on macOS 15.3.2</p>
+<ol class="arabic">
+<li><p>The following file allows you to run a full simulation until power cycle convergence of the current aircraft.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runMain</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>The input parameters are set in Lib/[pattern]_simInput.yaml, the pattern here links to the demo files showing how to set-up the specific pattern in the pathparam (struct) variable.</p>
+</li>
+<li><p>All input variables are set in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Lib/<span class="o">[</span>pattern<span class="o">]</span>_simInput.yaml
+</pre></div>
+</div>
+<p>where the kite specific variable are set in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Lib/MegAWESkite.yaml
+</pre></div>
+</div>
+<p>Following parameters are set:</p>
+<ol class="arabic simple">
+<li><p><strong>ENVMT</strong>: Environment parameters, steady max windspeed (no turbulence is included at this stage).</p></li>
+<li><p><strong>simInit</strong>: Simulation initialisation parameters.</p></li>
+<li><p><strong>actuatorLimit</strong>: Actuator constraints.</p></li>
+<li><p><strong>tetherParams</strong>: Tether characteristics.</p></li>
+<li><p><strong>winchParameter</strong>: Winch characteristics.</p></li>
+<li><p><strong>pathparam</strong>: Flight path shape.</p></li>
+<li><p><strong>controllerGains_traction</strong>: Controller gains (traction).</p></li>
+<li><p><strong>controllerGains_retraction</strong>: Controller gains (retraction).</p></li>
+</ol>
+</li>
+<li><p>In the simulink model, the output parameters are defined in the root of the simulink model on the right side.</p>
+<p>An example of the visualisation of the output is given in <code class="docutils literal notranslate"><span class="pre">demoPlot.m</span></code>.
+There the continuous power throughout the cycle is plotted, and a visual of the flight path is plotted in a 3D environment with colour coding the power production.</p>
+</li>
+<li><p>Required libraries are found in the <code class="docutils literal notranslate"><span class="pre">Lib</span></code> folder and the source code can be found in the <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder. Eijkelhof <a class="reference internal" href="#references"><span class="xref myst">[5]</span></a> gives a more detailed explanation of the controller strategy and reference frames used throughout this framework.</p></li>
+<li><p>Additional, non-required, kite details can be found in the <code class="docutils literal notranslate"><span class="pre">Lib/additional_kiteData</span></code> folder.</p></li>
+</ol>
+</section>
+<section id="documentation">
+<h3>💎Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h3>
+<p>A detailed documentation of the simulation framework can be accessed on <a class="reference internal" href="#"><span class="xref myst">github pages</span></a>.</p>
+</section>
+<section id="built-with">
+<h3>📐Built With<a class="headerlink" href="#built-with" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.mathworks.com/products/matlab">Matlab®</a> - The program language</p></li>
+<li><p><a class="reference external" href="https://www.mathworks.com/products/simulink">Simulink®</a> - The GUI used for model-based simulation design through block diagrams</p></li>
+</ul>
+<!--## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.-->
+</section>
+<section id="versioning">
+<h3>📌Versioning<a class="headerlink" href="#versioning" title="Link to this heading">#</a></h3>
+<p>For the versions available, see the <a class="reference external" href="https://github.com/awegroup/MegAWES/tags">tags on this repository</a>.</p>
+</section>
+<section id="authors">
+<h3>✏️Authors<a class="headerlink" href="#authors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Dylan Eijkelhof</strong> - <em>Initial work current system design, multi-MW aircraft</em>, core developer  - <a class="reference external" href="https://github.com/DylanEij">GitHub</a></p></li>
+<li><p><strong>Urban Fasel</strong> - <em>Initial framework set-up</em></p></li>
+<li><p><strong>Nicola Rossi</strong> - <em>Updated flight controller implementation</em></p></li>
+<li><p><strong>Jesse Hummel</strong> - <em>Winch design</em> - <a class="reference external" href="https://github.com/jesseishi">GitHub</a></p></li>
+</ul>
+<p>See also the list of <a class="reference external" href="https://github.com/awegroup/MegAWES/graphs/contributors">contributors</a> who participated in this project.</p>
+</section>
+<section id="contributing-optional">
+<h3>👋Contributing (optional)<a class="headerlink" href="#contributing-optional" title="Link to this heading">#</a></h3>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>Please make sure to update tests where appropriate.</p>
+</section>
+<section id="license-and-waiver">
+<h3>⚠️License and Waiver<a class="headerlink" href="#license-and-waiver" title="Link to this heading">#</a></h3>
+<p>This project is licensed under the Apache License - see the LICENSE file for details</p>
+<blockquote>
+<div><p>Technische Universiteit Delft hereby disclaims all copyright interest in the program “MegAWES (a fixed-wing power computation model) written by the Author(s).</p>
+<p>Prof.dr. H.G.C. (Henri) Werij, Dean of Aerospace Engineering</p>
+<p>Copyright (c) 2025 Dylan Eijkelhof</p>
+</div></blockquote>
+</section>
+<section id="references">
+<h3>📚References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<p>[1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. <a class="reference external" href="http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d">uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d</a></p>
+<p>[2] D. Eijkelhof, S. Rapp, U. Fasel, M. Gaunaa, R. Schmehl: Reference Design and Simulation Framework of a Multi-Megawatt Airborne Wind Energy System. Journal of Physics: Conference Series, Vol. 1618, No. 3, 2020. <a class="reference external" href="https://doi.org/10.1088/1742-6596/1618/3/032020">doi:10.1088/1742-6596/1618/3/032020</a></p>
+<p>[3] J. Hummel, T. Pollack, D. Eijkelhof, E. -J. van Kampen and R. Schmehl, “Winch Sizing for Ground-Generation Airborne Wind Energy Systems,” <em>2024 European Control Conference (ECC)</em>, Stockholm, Sweden, 2024, pp. 675-680, doi: <a class="reference external" href="https://doi.org/10.23919/ECC64448.2024.10590780">10.23919/ECC64448.2024.10590780</a>.</p>
+<p>[4] U. Fechner, R. van der Vlugt, E. Schreuder, R. Schmehl: Dynamic model of a pumping kite power system. Renewable Energy, Vol. 83, pp. 705-716, 2015. <a class="reference external" href="http://doi.org/10.1016/j.renene.2015.04.028">doi:10.1016/j.renene.2015.04.028</a></p>
+<p>[5] D. Eijkelhof, N. Rossi, and R. Schmehl: Optimal Flight Pattern Debate for Airborne Wind Energy Systems: Circular or Figure-of-eight?, Wind Energ. Sci. Discuss. [preprint], in review, 2024. <a class="reference external" href="https://doi.org/10.5194/wes-2024-139">doi:10.5194/wes-2024-139</a>.</p>
+<p>[6] S. Rapp: Robust Automatic Pumping Cycle Operation of Airborne Wind Energy Systems. PhD Thesis, Delft University of Technology, 2021. <a class="reference external" href="https://doi.org/10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae">doi:10.4233/uuid:ab2adf33-ef5d-413c-b403-2cfb4f9b6bae</a></p>
+</section>
+<section id="acknowledgments">
+<h3>👀Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Outstanding guidance of Roland Schmehl (TU Delft) and Mac Gaunaa (DTU wind energy).</p></li>
+<li><p>This project is partially financially supported by the Unmanned Valley Valkenburg project of the European Regional Development Fund.</p></li>
+<li><p>This project is partially financially supported by Dutch Research Council NWO (project NEON: New Energy and Mobility Outlook for the Netherlands under grant number 17628).</p></li>
+<li><p>The project was supported by the Digital Competence Centre, Delft University of Technology.</p></li>
+<li><p>A special thank you to the following people whos work helped with the design of the fixed-wing monoplane kite:</p>
+<ul>
+<li><p>Dominic Keidel</p></li>
+<li><p>Cla Mattia Galliard</p></li>
+<li><p>Lorenz Affentranger</p></li>
+<li><p>Gian Joerimann</p></li>
+<li><p>Michael Imobersteg</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to MegAWES documentation!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modules_new.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functions and Simulink models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#megawes-v3">MegAWES V3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">⚙️Getting Started</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#installing">Installing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">💪Deployment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">💎Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-with">📐Built With</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">📌Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authors">✏️Authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-optional">👋Contributing (optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license-and-waiver">⚠️License and Waiver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📚References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">👀Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dylan Eijkelhof
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Eijkelhof.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
