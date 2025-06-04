@@ -1,5 +1,8 @@
 # MegAWES (3DoF & 6DoF kite dynamics)
 
+> [!TIP]
+> The latest developments into an easier-to-tune controller and better scaled winch design are on the [newVersion branch](https://github.com/awegroup/MegAWES/tree/newVersion). Flying both circles and figure-of-eights is now possible.
+
 [![Version](https://img.shields.io/github/v/release/awegroup/MegAWES?label=Latest%20release)](https://github.com/awegroup/MegAWES/releases)
 [![Matlab19B](https://img.shields.io/static/v1?label=Matlab%20Simulink&message=2019B&color=brightgreen)](https://www.mathworks.com/products/simulink) <!--static-->
 [![License](https://img.shields.io/github/license/awegroup/MegAWES?label=License)](http://www.apache.org/licenses/)
