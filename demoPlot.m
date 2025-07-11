@@ -56,7 +56,7 @@ KitePosW = extractSignalOfLastCycle3D(simOut.kiteposW, ...
 
 
 %Define color of trajectory based on power produced
-color_values =  P_mech.Data;
+color_values =  P_mech.Data./1e6;
 
 % Define trajectory coordinates in WindrefFrame
 x = KitePosW.Data(:,1);
@@ -67,7 +67,7 @@ z = KitePosW.Data(:,3);
 fig1 = figure;
 scatter3(x, y, z, 20, color_values, 'filled');
 colormap('jet');
-colorbar;
+c = colorbar;
 
 % Define projected ground area of trajectory
 x_min = min(x);
@@ -101,8 +101,9 @@ daspect([1, 1, 1]);
 xlim([-250, 1300]);  % Limit x
 ylim([-800, 800]);  % Limit y
 zlim([0, 1200]);
+clim([-20,10]);
 
-ylabel(colorbar, 'Mechanical Power [MW ]'); %x 10^1
+ylabel(colorbar, 'Mechanical Power [MW]'); %x 10^1
 xlabel('X_w [m]');
 ylabel('Y_w [m]');
 zlabel('Z_w [m]');

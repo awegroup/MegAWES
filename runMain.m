@@ -19,8 +19,8 @@ load_system(model);
 
 %% Importing input parameters
 MegAWESkite = yaml.ReadYaml('MegAWESkite.yaml',false,true);
-% fileName_simInput = 'figure8down_simInput.yaml';
-fileName_simInput = 'circle_simInput.yaml';
+fileName_simInput = 'fig8up_simInput.yaml';
+% fileName_simInput = 'circle_simInput.yaml';
 
 [simInit, ENVMT, controllerGains_traction, ... 
     controllerGains_retraction, tetherParams, pathparam, ...
